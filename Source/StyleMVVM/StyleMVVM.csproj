@@ -34,11 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
+    <Folder Include="ViewModel\Impl\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\IViewModelBinder.cs" />
+    <Compile Include="ViewModel\IViewModelResolutionService.cs" />
+    <Compile Include="View\IFrameworkElementWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Grace">
