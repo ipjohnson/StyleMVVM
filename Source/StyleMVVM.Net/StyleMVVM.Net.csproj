@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Grace">
-      <HintPath>..\packages\Grace.2.2.4-Nightly1183\lib\portable-net45+wp80+win\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.2.4\lib\portable-net45+wp80+win\Grace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,9 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\StyleMVVM\StyleMVVM.csproj">
       <Project>{051c643f-fc47-46e7-a325-eaec807764dc}</Project>
       <Name>StyleMVVM</Name>
@@ -56,6 +53,9 @@
   <ItemGroup>
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
