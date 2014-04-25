@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("StyleMVVM.AppStore")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Full feature MVVM Framework, Windows Store App companion library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ian Johnson")]
 [assembly: AssemblyProduct("StyleMVVM.AppStore")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

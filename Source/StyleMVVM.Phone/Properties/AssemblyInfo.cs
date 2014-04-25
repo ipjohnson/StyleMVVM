@@ -8,8 +8,8 @@ using System.Resources;
 // associated with an assembly.
 [assembly: AssemblyTitle("StyleMVVM.Phone")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyConfiguration("Full feature MVVM Framework, Windows Phone companion library")]
+[assembly: AssemblyCompany("Ian Johnson")]
 [assembly: AssemblyProduct("StyleMVVM.Phone")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
