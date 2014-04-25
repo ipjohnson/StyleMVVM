@@ -7,8 +7,8 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("StyleMVVM.Phone")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("Full feature MVVM Framework, Windows Phone companion library")]
+[assembly: AssemblyDescription("Full feature MVVM Framework, Windows Phone companion library")]
+[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ian Johnson")]
 [assembly: AssemblyProduct("StyleMVVM.Phone")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
