@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Grace.DependencyInjection.Attributes.Interfaces;
+
+namespace StyleMVVM.ViewModel
+{
+	public class ViewModelAttribute : Attribute, IExportAttribute
+	{
+		/// <summary>
+		/// If you want to provide a different name other than the default
+		/// </summary>
+		public string Name { get; set; }
+
+		public IEnumerable<string> ProvideExportNames(Type attributedType)
+		{
+			yield return Name ?? attributedType.Name;
+		}
+
+		public IEnumerable<Type> ProvideExportTypes(Type attributedType)
+		{
+			return new Type[0];
+		}
+	}
+}

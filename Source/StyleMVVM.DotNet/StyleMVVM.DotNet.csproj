@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A16B837-EBE3-44C6-98F9-7FDF1EF787A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StyleMVVM</RootNamespace>
+    <AssemblyName>StyleMVVM.DotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.2.5-Nightly1187\lib\portable-net45+wp80+win\Grace.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\StyleMVVM\Bootstrapper.cs">
+      <Link>Bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\CompositionRoot.cs">
+      <Link>CompositionRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\DesignTimeBootstrapper.cs">
+      <Link>DesignTimeBootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\IBootstrapper.cs">
+      <Link>IBootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\BackgroundMessageHandlerAttribute.cs">
+      <Link>Messenger\BackgroundMessageHandlerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\CallbackMessage.cs">
+      <Link>Messenger\CallbackMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\DispatchedMessenger.cs">
+      <Link>Messenger\DispatchedMessenger.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\IDispatchedMessenger.cs">
+      <Link>Messenger\IDispatchedMessenger.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\MessageHandlerAttribute.cs">
+      <Link>Messenger\MessageHandlerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Services\MetadataConstants.cs">
+      <Link>Services\MetadataConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Services\ServiceStartupAttribute.cs">
+      <Link>Services\ServiceStartupAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Ultilities\DesignModeUtility.cs">
+      <Link>Utilities\DesignModeUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Ultilities\VisualTreeHelperExtensions.cs">
+      <Link>Utilities\VisualTreeHelperExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\BaseViewModel.cs">
+      <Link>ViewModel\BaseViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\DelegateCommand.cs">
+      <Link>ViewModel\DelegateCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\ILoadedAwareViewModel.cs">
+      <Link>ViewModel\ILoadedAwareViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelDataContextBinder.cs">
+      <Link>ViewModel\Impl\ViewModelDataContextBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelLoadedBinder.cs">
+      <Link>ViewModel\Impl\ViewModelLoadedBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelNavigationBinder.cs">
+      <Link>ViewModel\Impl\ViewModelNavigationBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelParentDataContextBinder.cs">
+      <Link>ViewModel\Impl\ViewModelParentDataContextBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelResolutionService.cs">
+      <Link>ViewModel\Impl\ViewModelResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\Impl\ViewModelViewAwareBinder.cs">
+      <Link>ViewModel\Impl\ViewModelViewAwareBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\INavigationParameterAwareViewModel.cs">
+      <Link>ViewModel\INavigationParameterAwareViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\INavigationViewModel.cs">
+      <Link>ViewModel\INavigationViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\IParentDataContextAwareViewModel.cs">
+      <Link>ViewModel\IParentDataContextAwareViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\IViewAware.cs">
+      <Link>ViewModel\IViewAware.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\IViewModelBinder.cs">
+      <Link>ViewModel\IViewModelBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\IViewModelResolutionService.cs">
+      <Link>ViewModel\IViewModelResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\ViewModel\ViewModelAttribute.cs">
+      <Link>ViewModel\ViewModelAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\EventHandlerInstance.cs">
+      <Link>View\EventHandlerInstance.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\EventHandlers.cs">
+      <Link>View\EventHandlers.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\EventHandlersList.cs">
+      <Link>View\EventHandlersList.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\Impl\ViewContext.cs">
+      <Link>View\Impl\ViewContext.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\INavigatingPage.cs">
+      <Link>View\INavigatingPage.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\IViewContext.cs">
+      <Link>View\IViewContext.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\StyleNavigatingCancelEventArgs.cs">
+      <Link>View\StyleNavigatingCancelEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\StyleNavigationEventArgs.cs">
+      <Link>View\StyleNavigationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\ViewAttribute.cs">
+      <Link>View\ViewAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\ViewModel.cs">
+      <Link>View\ViewModel.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

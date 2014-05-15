@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6FEE07B1-8878-401E-AC66-5783A286655F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StyleMVVM</RootNamespace>
+    <AssemblyName>StyleMVVM</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\StyleMVVM.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\StyleMVVM.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+    <TargetPlatform Include="Windows, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CompositionRoot.cs" />
+    <Compile Include="DesignTimeBootstrapper.cs" />
+    <Compile Include="IBootstrapper.cs" />
+    <Compile Include="Messenger\BackgroundMessageHandlerAttribute.cs" />
+    <Compile Include="Messenger\CallbackMessage.cs" />
+    <Compile Include="Messenger\DispatchedMessenger.cs" />
+    <Compile Include="Messenger\IDispatchedMessenger.cs" />
+    <Compile Include="Messenger\MessageHandlerAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MetadataConstants.cs" />
+    <Compile Include="Services\ServiceStartupAttribute.cs" />
+    <Compile Include="Ultilities\DesignModeUtility.cs" />
+    <Compile Include="Ultilities\VisualTreeHelperExtensions.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\ILoadedAwareViewModel.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelDataContextBinder.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelLoadedBinder.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelNavigationBinder.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelParentDataContextBinder.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelResolutionService.cs" />
+    <Compile Include="ViewModel\Impl\ViewModelViewAwareBinder.cs" />
+    <Compile Include="ViewModel\INavigationParameterAwareViewModel.cs" />
+    <Compile Include="ViewModel\INavigationViewModel.cs" />
+    <Compile Include="ViewModel\IParentDataContextAwareViewModel.cs" />
+    <Compile Include="ViewModel\IViewAware.cs" />
+    <Compile Include="ViewModel\IViewModelBinder.cs" />
+    <Compile Include="ViewModel\IViewModelResolutionService.cs" />
+    <Compile Include="ViewModel\ViewModelAttribute.cs" />
+    <Compile Include="View\EventHandlerInstance.cs" />
+    <Compile Include="View\EventHandlers.cs" />
+    <Compile Include="View\EventHandlersList.cs" />
+    <Compile Include="View\Impl\ViewContext.cs" />
+    <Compile Include="View\INavigatingPage.cs" />
+    <Compile Include="View\IViewContext.cs" />
+    <Compile Include="View\StyleNavigatingCancelEventArgs.cs" />
+    <Compile Include="View\StyleNavigationEventArgs.cs" />
+    <Compile Include="View\ViewAttribute.cs" />
+    <Compile Include="View\ViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\..\..\Grace-Master\Output\bin\AnyCPU\Grace.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(ProjectDir)..\Output\bin\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\Output\bin\"
+xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\Output\bin\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
