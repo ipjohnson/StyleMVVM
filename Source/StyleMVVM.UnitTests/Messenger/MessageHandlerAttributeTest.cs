@@ -4,8 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grace.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using StyleMVVM.Messenger;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace StyleMVVM.UnitTests.Messenger
 {

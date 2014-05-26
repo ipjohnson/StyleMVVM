@@ -53,6 +53,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="..\StyleMVVM.UnitTests\Messenger\DispatchedMessengerTests.cs">
+      <Link>Messenger\DispatchedMessengerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM.UnitTests\Messenger\MessageHandlerAttributeTest.cs">
+      <Link>Messenger\MessageHandlerAttributeTest.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM.UnitTests\Messenger\TestClass.cs">
+      <Link>Messenger\TestClass.cs</Link>
+    </Compile>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
