@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grace.DependencyInjection;
+using StyleMVVM.Messenger;
 using StyleMVVM.ViewModel;
 using StyleMVVM.ViewModel.Impl;
 
@@ -13,6 +14,8 @@ namespace StyleMVVM
 	{
 		public void Configure(IExportRegistrationBlock registrationBlock)
 		{
+			SetupDispatchedMessenger(registrationBlock);
+
 			SetupValidation(registrationBlock);
 
 			SetupViewModelService(registrationBlock);
@@ -30,6 +33,13 @@ namespace StyleMVVM
 			registrationBlock.Export<ViewModelNavigationBinder>().As<IViewModelBinder>();
 			registrationBlock.Export<ViewModelParentDataContextBinder>().As<IViewModelBinder>();
 			registrationBlock.Export<ViewModelViewAwareBinder>().As<IViewModelBinder>();
+		}
+
+		private void SetupDispatchedMessenger(IExportRegistrationBlock registrationBlock)
+		{
+			registrationBlock.Export<DispatchedMessenger>().
+									As<IDispatchedMessenger>().
+									AndSingleton();
 		}
 
 		private void SetupViewService(IExportRegistrationBlock registrationBlock)

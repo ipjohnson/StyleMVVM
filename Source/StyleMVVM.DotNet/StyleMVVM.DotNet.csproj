@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\StyleMVVM.DotNet.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,10 +29,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\StyleMVVM.DotNet.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Grace">
-      <HintPath>..\packages\Grace.2.2.5-Nightly1187\lib\portable-net45+wp80+win\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.3.1-Nightly1215\lib\portable-net45+win+wp80\Grace.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -58,8 +60,14 @@
     <Compile Include="..\StyleMVVM\IBootstrapper.cs">
       <Link>IBootstrapper.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\LanguageExtensions\DispatcherExtensions.cs">
+      <Link>LanguageExtensions\DispatcherExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\Messenger\BackgroundMessageHandlerAttribute.cs">
       <Link>Messenger\BackgroundMessageHandlerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\BaseMessageHandler.cs">
+      <Link>Messenger\BaseMessageHandler.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\Messenger\CallbackMessage.cs">
       <Link>Messenger\CallbackMessage.cs</Link>
@@ -70,8 +78,20 @@
     <Compile Include="..\StyleMVVM\Messenger\IDispatchedMessenger.cs">
       <Link>Messenger\IDispatchedMessenger.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\IMessageHandlerWrapper.cs">
+      <Link>Messenger\IMessageHandlerWrapper.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\Messenger\MessageHandlerAttribute.cs">
       <Link>Messenger\MessageHandlerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\MessageHandlerEnrichmentProvider.cs">
+      <Link>Messenger\MessageHandlerEnrichmentProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\ReferencedMessageHandler.cs">
+      <Link>Messenger\ReferencedMessageHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Messenger\WeakMessageHandler.cs">
+      <Link>Messenger\WeakMessageHandler.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\Services\MetadataConstants.cs">
       <Link>Services\MetadataConstants.cs</Link>
@@ -160,6 +180,9 @@
     <Compile Include="..\StyleMVVM\View\ViewAttribute.cs">
       <Link>View\ViewAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\ViewHelper.cs">
+      <Link>View\ViewHelper.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\ViewModel.cs">
       <Link>View\ViewModel.cs</Link>
     </Compile>
@@ -168,7 +191,13 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\Output\bin\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Output\bin\"
+xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Output\bin\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

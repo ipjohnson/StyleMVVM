@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\StyleMVVM.XML</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="$(teamcity_build_id) == ''">
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
@@ -45,11 +45,17 @@
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="DesignTimeBootstrapper.cs" />
     <Compile Include="IBootstrapper.cs" />
+    <Compile Include="LanguageExtensions\DispatcherExtensions.cs" />
     <Compile Include="Messenger\BackgroundMessageHandlerAttribute.cs" />
+    <Compile Include="Messenger\BaseMessageHandler.cs" />
     <Compile Include="Messenger\CallbackMessage.cs" />
     <Compile Include="Messenger\DispatchedMessenger.cs" />
     <Compile Include="Messenger\IDispatchedMessenger.cs" />
+    <Compile Include="Messenger\IMessageHandlerWrapper.cs" />
     <Compile Include="Messenger\MessageHandlerAttribute.cs" />
+    <Compile Include="Messenger\MessageHandlerEnrichmentProvider.cs" />
+    <Compile Include="Messenger\ReferencedMessageHandler.cs" />
+    <Compile Include="Messenger\WeakMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MetadataConstants.cs" />
     <Compile Include="Services\ServiceStartupAttribute.cs" />
@@ -80,17 +86,19 @@
     <Compile Include="View\StyleNavigatingCancelEventArgs.cs" />
     <Compile Include="View\StyleNavigationEventArgs.cs" />
     <Compile Include="View\ViewAttribute.cs" />
+    <Compile Include="View\ViewHelper.cs" />
     <Compile Include="View\ViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.3.1-Nightly1215\lib\portable-win81+wpa81\Grace.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Grace">
-      <HintPath>..\..\..\Grace-Master\Output\bin\AnyCPU\Grace.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!--<Import Project="..\..\BuildFiles\Microsoft.Portable.CSharp.targets" />-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" Condition="$(teamcity_build_id) == ''" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(ProjectDir)..\Output\bin\"
 xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\Output\bin\"
