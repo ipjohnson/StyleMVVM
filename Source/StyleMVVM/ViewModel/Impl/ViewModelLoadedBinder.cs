@@ -41,6 +41,11 @@ namespace StyleMVVM.ViewModel.Impl
 			}
 		}
 
+		/// <summary>
+		/// Unbind the view model loaded events
+		/// </summary>
+		/// <param name="frameworkElement"></param>
+		/// <param name="viewModel"></param>
 		public void UnbindViewModelFromView(FrameworkElement frameworkElement, object viewModel)
 		{
 			if (viewModel is ILoadedAwareViewModel)

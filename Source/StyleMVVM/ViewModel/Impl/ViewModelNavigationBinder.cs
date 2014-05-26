@@ -32,24 +32,6 @@ namespace StyleMVVM.ViewModel.Impl
 		/// <param name="viewModel"></param>
 		public void BindViewModelToView(FrameworkElement frameworkElement, object viewModel)
 		{
-#if WINDOWS_PHONE
-			Page page = frameworkElement as Page;
-
-			if (page != null && viewModel is INavigationViewModel)
-			{
-				page.Loaded += (sender, args) =>
-					               {
-											NavigationViewModelNavigatedTo(sender,
-												new NavigationEventArgs(page.Content,page.NavigationService.Source,NavigationMode.New, true));
-
-						               page.NavigationService.Navigating += NavigationViewModelNavigatingFrom;
-						               page.NavigationService.Navigated += NavigationViewModelNavigatedFrom;
-					               };
-
-
-			}
-#else
-
 			if (viewModel is INavigationViewModel && frameworkElement is INavigatingPage)
 			{
 				INavigatingPage page = frameworkElement as INavigatingPage;
@@ -62,8 +44,6 @@ namespace StyleMVVM.ViewModel.Impl
 				page.NavigatedTo += NavigationViewModelNavigatedTo;
 				page.NavigatingFrom += NavigationViewModelNavigatingFrom;
 			}
-
-#endif
 		}
 
 		/// <summary>

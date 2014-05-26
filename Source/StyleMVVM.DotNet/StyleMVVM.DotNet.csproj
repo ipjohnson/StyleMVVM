@@ -162,11 +162,17 @@
     <Compile Include="..\StyleMVVM\View\EventHandlersList.cs">
       <Link>View\EventHandlersList.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\Impl\NavigationService.cs">
+      <Link>View\Impl\NavigationService.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\Impl\ViewContext.cs">
       <Link>View\Impl\ViewContext.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\INavigatingPage.cs">
       <Link>View\INavigatingPage.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\INavigationService.cs">
+      <Link>View\INavigationService.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\IViewContext.cs">
       <Link>View\IViewContext.cs</Link>

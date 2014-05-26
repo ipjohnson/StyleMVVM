@@ -76,12 +76,16 @@
     <Compile Include="ViewModel\IViewAware.cs" />
     <Compile Include="ViewModel\IViewModelBinder.cs" />
     <Compile Include="ViewModel\IViewModelResolutionService.cs" />
+    <Compile Include="ViewModel\NavigatingViewModel.cs" />
+    <Compile Include="ViewModel\PageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelAttribute.cs" />
     <Compile Include="View\EventHandlerInstance.cs" />
     <Compile Include="View\EventHandlers.cs" />
     <Compile Include="View\EventHandlersList.cs" />
+    <Compile Include="View\Impl\NavigationService.cs" />
     <Compile Include="View\Impl\ViewContext.cs" />
     <Compile Include="View\INavigatingPage.cs" />
+    <Compile Include="View\INavigationService.cs" />
     <Compile Include="View\IViewContext.cs" />
     <Compile Include="View\StyleNavigatingCancelEventArgs.cs" />
     <Compile Include="View\StyleNavigationEventArgs.cs" />

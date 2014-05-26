@@ -26,6 +26,11 @@ namespace StyleMVVM.ViewModel.Impl
 		private readonly IEnumerable<IViewModelBinder> binders;
 		private readonly IInjectionScope injectionScope;
 
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		/// <param name="injectionScope">injection scope</param>
+		/// <param name="binderCollection">binder collection</param>
 		public ViewModelResolutionService(IInjectionScope injectionScope, IEnumerable<IViewModelBinder> binderCollection)
 		{
 			this.injectionScope = injectionScope;
@@ -82,7 +87,7 @@ namespace StyleMVVM.ViewModel.Impl
 		/// Creates and Binds a viewmodel to a view
 		/// </summary>
 		/// <param name="view">view to bind to</param>
-		/// <param name="viewModelName">type of the view model to bind to</param>
+		/// <param name="viewModelType">type of the view model to bind to</param>
 		public void ResolveViewModel(FrameworkElement view, Type viewModelType)
 		{
 			object viewModel = null;

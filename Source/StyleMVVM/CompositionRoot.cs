@@ -5,13 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Grace.DependencyInjection;
 using StyleMVVM.Messenger;
+using StyleMVVM.View;
+using StyleMVVM.View.Impl;
 using StyleMVVM.ViewModel;
 using StyleMVVM.ViewModel.Impl;
 
+#if NET_PORTABLE
+using Windows.UI.Xaml.Controls;
+#else
+using System.Windows.Controls;
+#endif
+
 namespace StyleMVVM
 {
+	/// <summary>
+	/// Composition root for StyleMVVM framework
+	/// </summary>
 	public class CompositionRoot : IConfigurationModule
 	{
+		/// <summary>
+		/// Configure the container for StyleMVVM
+		/// </summary>
+		/// <param name="registrationBlock">registration block</param>
 		public void Configure(IExportRegistrationBlock registrationBlock)
 		{
 			SetupDispatchedMessenger(registrationBlock);
@@ -44,7 +59,9 @@ namespace StyleMVVM
 
 		private void SetupViewService(IExportRegistrationBlock registrationBlock)
 		{
-			
+			registrationBlock.Export<NavigationService>().
+									As<INavigationService>().
+									WithCtorParam<Frame>().IsRequired(false);
 		}
 
 		private void SetupValidation(IExportRegistrationBlock registrationBlock)
