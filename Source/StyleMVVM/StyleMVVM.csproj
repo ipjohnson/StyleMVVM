@@ -51,6 +51,7 @@
     <Compile Include="Messenger\CallbackMessage.cs" />
     <Compile Include="Messenger\DispatchedMessenger.cs" />
     <Compile Include="Messenger\IDispatchedMessenger.cs" />
+    <Compile Include="Messenger\IExportTypeSetConfigurationExtensions.cs" />
     <Compile Include="Messenger\IMessageHandlerWrapper.cs" />
     <Compile Include="Messenger\MessageHandlerAttribute.cs" />
     <Compile Include="Messenger\MessageHandlerEnrichmentProvider.cs" />
@@ -81,7 +82,7 @@
     <Compile Include="ViewModel\ViewModelAttribute.cs" />
     <Compile Include="View\EventHandlerInstance.cs" />
     <Compile Include="View\EventHandlers.cs" />
-    <Compile Include="View\EventHandlersList.cs" />
+    <Compile Include="View\EventHandlerList.cs" />
     <Compile Include="View\Impl\NavigationService.cs" />
     <Compile Include="View\Impl\ViewContext.cs" />
     <Compile Include="View\INavigatingPage.cs" />

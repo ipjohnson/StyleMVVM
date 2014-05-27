@@ -157,11 +157,11 @@
     <Compile Include="..\StyleMVVM\View\EventHandlerInstance.cs">
       <Link>View\EventHandlerInstance.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\EventHandlerList.cs">
+      <Link>View\EventHandlerList.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\EventHandlers.cs">
       <Link>View\EventHandlers.cs</Link>
-    </Compile>
-    <Compile Include="..\StyleMVVM\View\EventHandlersList.cs">
-      <Link>View\EventHandlersList.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\Impl\NavigationService.cs">
       <Link>View\Impl\NavigationService.cs</Link>

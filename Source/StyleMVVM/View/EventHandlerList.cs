@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace StyleMVVM.View
 {
-	class EventHandlersList
+	public class EventHandlerList : List<EventHandlerInstance>
 	{
+		
 	}
 }
