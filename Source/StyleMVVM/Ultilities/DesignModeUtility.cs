@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 
 using Windows.ApplicationModel;
 #else
@@ -20,7 +20,7 @@ namespace StyleMVVM.Ultilities
 		{
 			get
 			{
-#if NET_PORTABLE
+#if NETFX_CORE
 				return DesignMode.DesignModeEnabled;
 #else
 				return false;

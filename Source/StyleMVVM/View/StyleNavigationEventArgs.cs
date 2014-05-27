@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Xaml.Navigation;
 #else
 using System.Windows.Navigation;
@@ -56,7 +56,7 @@ namespace StyleMVVM.View
 			{
 				if (args != null)
 				{
-#if NET_PORTABLE
+#if NETFX_CORE
 					return args.Parameter;
 #else
 					return args.ExtraData;
@@ -96,7 +96,7 @@ namespace StyleMVVM.View
 			}
 		}
 
-#if NET_PORTABLE
+#if NETFX_CORE
 		public NavigationMode NavigationMode
 		{
 			get

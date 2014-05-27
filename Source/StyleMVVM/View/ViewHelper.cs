@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 #else
@@ -19,7 +19,7 @@ namespace StyleMVVM.View
 	/// </summary>
 	public static class ViewHelper
 	{
-#if NET_PORTABLE
+#if NETFX_CORE
 		public static CoreDispatcher MainDispatcher
 		{
 			get
@@ -52,7 +52,7 @@ namespace StyleMVVM.View
 		{
 			get
 			{
-#if NET_PORTABLE
+#if NETFX_CORE
 				if (Window.Current != null)
 				{
 					return Window.Current.Content;

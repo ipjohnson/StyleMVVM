@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Grace.Data;
 using Grace.DependencyInjection;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Xaml.Controls;
 #else
 using System.Windows.Controls;
@@ -122,7 +122,7 @@ namespace StyleMVVM.View.Impl
 
 			if (frameReference.TryGetTarget(out frame))
 			{
-#if NET_PORTABLE
+#if NETFX_CORE
 				IExportStrategy exportStrategy = injectionScope.GetStrategy(pageName);
 
 				if (exportStrategy == null)

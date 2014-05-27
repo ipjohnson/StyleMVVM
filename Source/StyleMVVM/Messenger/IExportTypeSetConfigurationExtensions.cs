@@ -50,7 +50,9 @@ namespace StyleMVVM.Messenger
 			{
 				if (methodInfo.IsStatic ||
 					!methodInfo.IsPublic ||
-					!methodInfo.Name.EndsWith(messageHandlerPostfix))
+					!methodInfo.Name.EndsWith(messageHandlerPostfix) ||
+					 methodInfo.ReturnType != typeof(void) ||
+					 methodInfo.GetParameters().Count() != 1)
 				{
 					continue;
 				}

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.UI.Xaml;
@@ -57,7 +57,7 @@ namespace StyleMVVM.Ultilities
 
 		public static bool IsInVisualTree(this DependencyObject dob)
 		{
-#if NET_PORTABLE
+#if NETFX_CORE
 			if (Window.Current == null)
 			{
 				// This may happen when a picker or CameraCaptureUI etc. is open.
@@ -84,7 +84,7 @@ namespace StyleMVVM.Ultilities
 
 		public static Rect GetBoundingRect(this FrameworkElement dob, FrameworkElement relativeTo)
 		{
-#if NET_PORTABLE
+#if NETFX_CORE
 			if (relativeTo == null)
 			{
 				relativeTo = Window.Current.Content as FrameworkElement;
@@ -113,7 +113,7 @@ namespace StyleMVVM.Ultilities
 				throw new InvalidOperationException("Element not in visual tree.");
 			}
 
-#if NET_PORTABLE
+#if NETFX_CORE
 			var pos =
 				dob
 					.TransformToVisual(relativeTo)

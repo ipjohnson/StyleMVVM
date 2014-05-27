@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Grace.Logging;
 using StyleMVVM.View;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 #else

@@ -5,8 +5,8 @@ using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 using Grace.Logging;
-
-#if NET_PORTABLE
+using StyleMVVM.Ultilities;
+#if NETFX_CORE
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -82,6 +82,11 @@ namespace StyleMVVM.View
 		/// <param name="element"></param>
 		public void Connect(DependencyObject element)
 		{
+			if (DesignModeUtility.DesignModeIsEnabled)
+			{
+				return;
+			}
+
 			elementRef = new WeakReference(element);
 
 			if (string.IsNullOrEmpty(eventName))
@@ -98,7 +103,7 @@ namespace StyleMVVM.View
 				{
 					eventName = "TextChanged";
 				}
-#if NET_PORTABLE
+#if NETFX_CORE
 				else if (element is ToggleSwitch)
 				{
 					eventName = "Toggled";
@@ -116,7 +121,7 @@ namespace StyleMVVM.View
 
 				if (eventInfo != null)
 				{
-#if NET_PORTABLE
+#if NETFX_CORE
 					MethodInfo newEventType =
 						genericConnectMethod.MakeGenericMethod(eventInfo.EventHandlerType);
 
@@ -144,6 +149,11 @@ namespace StyleMVVM.View
 		/// </summary>
 		public void Disconnect()
 		{
+			if (DesignModeUtility.DesignModeIsEnabled)
+			{
+				return;
+			}
+
 			DependencyObject d = elementRef.Target as DependencyObject;
 
 			if (d != null)
@@ -171,7 +181,7 @@ namespace StyleMVVM.View
 			}
 		}
 
-#if NET_PORTABLE
+#if NETFX_CORE
 		internal void GenericConnectHandler<T>(
 			DependencyObject d, EventInfo eventInfo, object target, MethodInfo methodInfo) where T : class
 		{

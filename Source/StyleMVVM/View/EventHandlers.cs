@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+#if NETFX_CORE
+using Windows.UI.Xaml;
+#endif
+
 namespace StyleMVVM.View
 {
 	/// <summary>

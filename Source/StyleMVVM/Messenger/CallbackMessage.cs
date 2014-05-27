@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Grace.Logging;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -24,7 +24,7 @@ namespace StyleMVVM.Messenger
 	/// <typeparam name="T">the message callback parameter.</typeparam>
 	public class CallbackMessage<T>
 	{
-#if NET_PORTABLE
+#if NETFX_CORE
 		private CoreDispatcher dispatcher;
 #else
 
@@ -34,7 +34,7 @@ namespace StyleMVVM.Messenger
 
 		public CallbackMessage(Action<T> callback)
 		{
-#if NET_PORTABLE
+#if NETFX_CORE
 			if (Window.Current != null && Window.Current.Dispatcher != null && Window.Current.Dispatcher.HasThreadAccess)
 			{
 				dispatcher = Window.Current.Dispatcher;
@@ -55,7 +55,7 @@ namespace StyleMVVM.Messenger
 			{
 				bool access;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 				
 				access = dispatcher.HasThreadAccess;
 #else
@@ -68,7 +68,7 @@ namespace StyleMVVM.Messenger
 				}
 				else
 				{
-#if NET_PORTABLE
+#if NETFX_CORE
 					dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => ExecuteCallback(parameter));
 					
 #else
@@ -78,7 +78,7 @@ namespace StyleMVVM.Messenger
 			}
 			else
 			{
-#if NET_PORTABLE
+#if NETFX_CORE
 				ThreadPool.RunAsync((x) => ExecuteCallback(parameter));
 #else
 

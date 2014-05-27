@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Grace.Logging;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;

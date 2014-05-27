@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 #else

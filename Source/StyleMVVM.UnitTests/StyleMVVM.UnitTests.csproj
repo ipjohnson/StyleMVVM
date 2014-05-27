@@ -114,8 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapperTests.cs" />
+    <Compile Include="Messenger\ConventionClass.cs" />
     <Compile Include="Messenger\DispatchedMessengerTests.cs" />
     <Compile Include="Messenger\MessageHandlerAttributeTest.cs" />
+    <Compile Include="Messenger\RegisterMessageHandlerTests.cs" />
     <Compile Include="Messenger\TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,7 +151,7 @@
   <ItemGroup>
     <Reference Include="Grace, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Grace.2.3.1-Nightly1218\lib\portable-win81+wpa81\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.3.1-Nightly1219\lib\portable-win81+wpa81\Grace.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

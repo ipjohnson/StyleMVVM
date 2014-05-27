@@ -10,7 +10,7 @@ using StyleMVVM.View.Impl;
 using StyleMVVM.ViewModel;
 using StyleMVVM.ViewModel.Impl;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Xaml.Controls;
 #else
 using System.Windows.Controls;

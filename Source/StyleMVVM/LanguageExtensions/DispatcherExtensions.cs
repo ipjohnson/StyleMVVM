@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Core;
 #else
 using System.Windows.Threading;
@@ -13,7 +13,7 @@ using System.Windows.Threading;
 namespace StyleMVVM.LanguageExtensions
 {
 
-#if !NET_PORTABLE
+#if !NETFX_CORE
 	/// <summary>
 	/// Dispatcher priority
 	/// </summary>
@@ -47,7 +47,7 @@ namespace StyleMVVM.LanguageExtensions
 	/// </summary>
 	public static class DispatcherExtensions
 	{
-#if NET_PORTABLE
+#if NETFX_CORE
 		
 		/// <summary>
 		/// Has thread access to this dispatcher

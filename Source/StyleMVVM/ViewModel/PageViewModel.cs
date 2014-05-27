@@ -21,13 +21,13 @@ namespace StyleMVVM.ViewModel
 		private Func<Frame, INavigationService> navigationServiceFactory;
 		private bool foundFrame = false;
 
-
 		#region Navigation
 
 		/// <summary>
 		/// Imports a navigation service factory
 		/// </summary>
 		/// <param name="navigationServiceFactory">navigation service factory</param>
+		[Import]
 		public void ImportNavigationSericeFactory(Func<Frame, INavigationService> navigationServiceFactory)
 		{
 			this.navigationServiceFactory = navigationServiceFactory;

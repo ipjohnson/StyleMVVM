@@ -9,7 +9,7 @@ using Grace.DependencyInjection;
 using Grace.Logging;
 using StyleMVVM.Ultilities;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 #else

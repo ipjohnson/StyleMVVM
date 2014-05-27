@@ -36,7 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Grace, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.2.3.1-Nightly1218\lib\portable-net45+win+wp80\Grace.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Grace.2.3.1-Nightly1219\lib\portable-net45+win+wp80\Grace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -53,6 +54,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="..\StyleMVVM.UnitTests\Messenger\ConventionClass.cs">
+      <Link>Messenger\ConventionClass.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM.UnitTests\Messenger\DispatchedMessengerTests.cs">
       <Link>Messenger\DispatchedMessengerTests.cs</Link>
     </Compile>

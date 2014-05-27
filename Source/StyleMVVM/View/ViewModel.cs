@@ -8,7 +8,7 @@ using Grace.Logging;
 using StyleMVVM.Ultilities;
 using StyleMVVM.ViewModel;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 #else

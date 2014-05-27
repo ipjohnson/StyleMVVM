@@ -27,20 +27,11 @@ namespace StyleMVVM.ViewModel
 		/// <param name="e"></param>
 		void NavigatedFrom(object sender, StyleNavigationEventArgs e);
 
-#if NETFX_CORE
-		/// <summary>
-		/// Called directly before the page is navigated away from
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		IAsyncAction NavigatingFrom(object sender, StyleNavigatingCancelEventArgs e);
-#else
 		/// <summary>
 		/// Called directly before the page is navigated away from
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		Task NavigatingFrom(object sender, StyleNavigatingCancelEventArgs e);
-#endif
 	}
 }

@@ -8,7 +8,7 @@ using StyleMVVM.LanguageExtensions;
 using StyleMVVM.Messenger;
 using StyleMVVM.View;
 
-#if NET_PORTABLE
+#if NETFX_CORE
 using Windows.UI.Core;
 #endif
 
