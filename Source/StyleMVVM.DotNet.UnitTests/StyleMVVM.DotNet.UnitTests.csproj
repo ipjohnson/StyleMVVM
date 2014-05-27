@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Grace, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.2.3.1-Nightly1215\lib\portable-net45+win+wp80\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.3.1-Nightly1218\lib\portable-net45+win+wp80\Grace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -66,13 +66,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\StyleMVVM.DotNet\StyleMVVM.DotNet.csproj">
       <Project>{6a16b837-ebe3-44c6-98f9-7fdf1ef787a0}</Project>
       <Name>StyleMVVM.DotNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

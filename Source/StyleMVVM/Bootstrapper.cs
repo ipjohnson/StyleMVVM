@@ -20,6 +20,10 @@ namespace StyleMVVM
 		private volatile static IBootstrapper instance;
 		private static readonly object instanceLock = new object();
 
+		/// <summary>
+		/// Default bootstrapper
+		/// </summary>
+		/// <param name="exportEnvironment"></param>
 		public Bootstrapper(ExportEnvironment exportEnvironment = ExportEnvironment.RunTime)
 		{
 			Initialize(exportEnvironment);
@@ -27,42 +31,53 @@ namespace StyleMVVM
 			Instance = this;
 		}
 
+		/// <summary>
+		/// Dependency injection container for this bootstrapper
+		/// </summary>
 		public IDependencyInjectionContainer Container { get; private set; }
 
+		/// <summary>
+		/// Configure container
+		/// </summary>
+		/// <param name="registrationBlock">registration block</param>
 		public void Configure(ExportRegistrationDelegate registrationBlock)
 		{
 			Container.Configure(registrationBlock);
 		}
 
+		/// <summary>
+		/// Configure container
+		/// </summary>
+		/// <param name="configurationModule"></param>
 		public void Configure(IConfigurationModule configurationModule)
 		{
 			Container.Configure(configurationModule);
 		}
 
+		/// <summary>
+		/// Start bootstrapper
+		/// </summary>
 		public void Start()
 		{
 			Container.LocateAllWithMetadata<object>(MetadataConstants.ServiceStartupBeforeLaunch, true);
 		}
 
+		/// <summary>
+		/// Launch bootstrapper
+		/// </summary>
 		public void Launched()
 		{
 			Container.LocateAllWithMetadata<object>(MetadataConstants.ServiceStartupAfterLaunch);
 		}
 
+		/// <summary>
+		/// Shutdown bootstrapper
+		/// </summary>
 		public void Shutdown()
 		{
 			Container.Dispose();
 
 			Container = null;
-		}
-
-		private void Initialize(ExportEnvironment exportEnvironment)
-		{
-			Container = new DependencyInjectionContainer(exportEnvironment);
-
-			Container.Configure(new CompositionRoot());
-
-			Instance = this;
 		}
 
 		/// <summary>
@@ -108,6 +123,19 @@ namespace StyleMVVM
 		public static bool HasInstance
 		{
 			get { return instance != null; }
+		}
+
+		/// <summary>
+		/// Initialize the bootstrapper
+		/// </summary>
+		/// <param name="exportEnvironment">export environment</param>
+		private void Initialize(ExportEnvironment exportEnvironment)
+		{
+			Container = new DependencyInjectionContainer(exportEnvironment);
+
+			Container.Configure(new CompositionRoot());
+
+			Instance = this;
 		}
 	}
 }
