@@ -110,7 +110,6 @@ Global
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.Release|x64.ActiveCfg = Release|Any CPU
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.Release|x86.ActiveCfg = Release|Any CPU
 		{6CBEAE8D-66CB-43D7-B476-068E146470E9}.BuildMachine|Any CPU.ActiveCfg = BuildMachine|Any CPU
-		{6CBEAE8D-66CB-43D7-B476-068E146470E9}.BuildMachine|Any CPU.Build.0 = BuildMachine|Any CPU
 		{6CBEAE8D-66CB-43D7-B476-068E146470E9}.BuildMachine|ARM.ActiveCfg = BuildMachine|Any CPU
 		{6CBEAE8D-66CB-43D7-B476-068E146470E9}.BuildMachine|x64.ActiveCfg = BuildMachine|Any CPU
 		{6CBEAE8D-66CB-43D7-B476-068E146470E9}.BuildMachine|x86.ActiveCfg = BuildMachine|Any CPU
