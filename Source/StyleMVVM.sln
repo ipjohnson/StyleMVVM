@@ -60,7 +60,6 @@ Global
 		{6A16B837-EBE3-44C6-98F9-7FDF1EF787A0}.Release|x64.ActiveCfg = Release|Any CPU
 		{6A16B837-EBE3-44C6-98F9-7FDF1EF787A0}.Release|x86.ActiveCfg = Release|Any CPU
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.BuildMachine|Any CPU.ActiveCfg = BuildMachine|Any CPU
-		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.BuildMachine|Any CPU.Build.0 = BuildMachine|Any CPU
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.BuildMachine|Any CPU.Deploy.0 = BuildMachine|Any CPU
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.BuildMachine|ARM.ActiveCfg = BuildMachine|ARM
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.BuildMachine|ARM.Build.0 = BuildMachine|ARM
@@ -96,6 +95,7 @@ Global
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.Release|x86.Build.0 = Release|x86
 		{100D2522-A06B-4BAE-B271-7179FF1E2D78}.Release|x86.Deploy.0 = Release|x86
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.BuildMachine|Any CPU.ActiveCfg = BuildMachine|Any CPU
+		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.BuildMachine|Any CPU.Build.0 = BuildMachine|Any CPU
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.BuildMachine|ARM.ActiveCfg = BuildMachine|Any CPU
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.BuildMachine|x64.ActiveCfg = BuildMachine|Any CPU
 		{9B5E558F-B848-4283-BE7F-4466804FCDBE}.BuildMachine|x86.ActiveCfg = BuildMachine|Any CPU
