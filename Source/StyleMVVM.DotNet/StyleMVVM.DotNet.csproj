@@ -212,7 +212,11 @@
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\Output\bin\"
 xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\Output\bin\"
-xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Output\bin\"</PostBuildEvent>
+xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\Output\bin\"
+
+xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\nuget\lib\net45\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\nuget\lib\net45\"
+xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\nuget\lib\net45\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

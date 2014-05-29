@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>4.0.0</version>
+    <authors>Ian Johnson</authors>
+    <owners>Ian Johnson</owners>
+    <licenseUrl>https://stylemvvm.codeplex.com/license</licenseUrl>
+    <projectUrl>https://stylemvvm.codeplex.com/</projectUrl>
+    <id>StyleMVVM</id>
+    <title>StyleMVVM</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>StyleMVVM is a full featured MVVM framework designed from the ground up for the Windows Store platform (C#, C++ and HTML/JS supported). StyleMVVM has now been ported to Windows Phone 8 and WPF (.Net 4.5).</description>
+    <summary>This is the WinRT component of StyleMVVM, it can be used in C#, C++ and HTML/JS project types. </summary>
+    <releaseNotes>This is a minor release addressing Winodws Phone 8 Navigation Service and Singleton Per Request support</releaseNotes>
+    <copyright>Copyright 2014 Ian Johnson</copyright>
+    <language>en-US</language>
+    <tags>mvvm Metro winrt win8 winmd C# C++/CX HTML/JS .Net WPF WindowsPhone8</tags>
+  </metadata>
+  <files>
+    <file src="lib\portable-win81+wpa81\StyleMVVM.dll" target="lib\portable-win81+wpa81\StyleMVVM.dll"/>
+    <file src="lib\portable-win81+wpa81\StyleMVVM.xml" target="lib\portable-win81+wpa81\StyleMVVM.xml"/>
+    <file src="lib\portable-win81+wpa81\StyleMVVM.pdb" target="lib\portable-win81+wpa81\StyleMVVM.pdb"/>
+    
+    <file src="lib\net45\StyleMVVM.DotNet.dll" target="lib\net45\StyleMVVM.DotNet.dll"/>
+    <file src="lib\net45\StyleMVVM.DotNet.xml" target="lib\net45\StyleMVVM.DotNet.xml"/>
+    <file src="lib\net45\StyleMVVM.DotNet.pdb" target="lib\net45\StyleMVVM.DotNet.pdb"/>
+
+    <file src="..\Source\StyleMVVM\**\*.cs" target="src"/>
+  </files>
+</package> 
+

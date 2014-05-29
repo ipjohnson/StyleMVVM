@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM.DotNet.UnitTests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM.Templates", "StyleMVVM.Templates\StyleMVVM.Templates.csproj", "{6CBEAE8D-66CB-43D7-B476-068E146470E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuSpecFiles", "NuSpecFiles", "{B0BF68A1-D1D8-4436-B4E6-88D14771A613}"
+	ProjectSection(SolutionItems) = preProject
+		..\NuGet\StyleMVVM.nuspec = ..\NuGet\StyleMVVM.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BuildMachine|Any CPU = BuildMachine|Any CPU
