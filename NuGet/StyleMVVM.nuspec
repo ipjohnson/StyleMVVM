@@ -14,7 +14,10 @@
     <releaseNotes>This is a minor release addressing Winodws Phone 8 Navigation Service and Singleton Per Request support</releaseNotes>
     <copyright>Copyright 2014 Ian Johnson</copyright>
     <language>en-US</language>
-    <tags>mvvm Metro winrt win8 winmd C# C++/CX HTML/JS .Net WPF WindowsPhone8</tags>
+    <tags>mvvm Metro winrt win8 winmd C# C++/CX HTML/JS .Net WPF WindowsPhone8</tags>    
+    <dependencies>
+      <dependency id="Grace" version="2.3.1"/>
+    </dependencies>
   </metadata>
   <files>
     <file src="lib\portable-win81+wpa81\StyleMVVM.dll" target="lib\portable-win81+wpa81\StyleMVVM.dll"/>
