@@ -49,7 +49,7 @@ namespace StyleMVVM.View
 
 				if (resolutionService != null)
 				{
-					if (resolutionService.ResolveViewModel(d as FrameworkElement, e.NewValue as string) == false)
+					if (resolutionService.ResolveViewModel(exportLocator, d as FrameworkElement, e.NewValue as string) == false)
 					{
 						Logger.Error("Could not find ViewModel by the name of " + e.NewValue, supplementalString);
 					}

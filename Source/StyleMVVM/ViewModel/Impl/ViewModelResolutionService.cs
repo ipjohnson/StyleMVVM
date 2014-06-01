@@ -24,26 +24,24 @@ namespace StyleMVVM.ViewModel.Impl
 	{
 		private const string SUPPLEMENTAL_STRING = "ViewModelResolutionService";
 		private readonly IEnumerable<IViewModelBinder> binders;
-		private readonly IInjectionScope injectionScope;
 
 		/// <summary>
 		/// Default constructor
 		/// </summary>
 		/// <param name="injectionScope">injection scope</param>
 		/// <param name="binderCollection">binder collection</param>
-		public ViewModelResolutionService(IInjectionScope injectionScope, IEnumerable<IViewModelBinder> binderCollection)
+		public ViewModelResolutionService(IEnumerable<IViewModelBinder> binderCollection)
 		{
-			this.injectionScope = injectionScope;
-
 			binders = binderCollection;
 		}
-		
+
 		/// <summary>
 		/// Creates and Binds a viewmodel to a view
 		/// </summary>
+		/// <param name="injectionScope"></param>
 		/// <param name="view">view to bind to</param>
 		/// <param name="viewModelName">name of the view model to bind to</param>
-		public bool ResolveViewModel(FrameworkElement view, string viewModelName)
+		public bool ResolveViewModel(IExportLocator injectionScope, FrameworkElement view, string viewModelName)
 		{
 			bool foundModel = false;
 			object viewModel = null;
@@ -86,9 +84,10 @@ namespace StyleMVVM.ViewModel.Impl
 		/// <summary>
 		/// Creates and Binds a viewmodel to a view
 		/// </summary>
+		/// <param name="injectionScope">injection scope to resolve from</param>
 		/// <param name="view">view to bind to</param>
 		/// <param name="viewModelType">type of the view model to bind to</param>
-		public void ResolveViewModel(FrameworkElement view, Type viewModelType)
+		public void ResolveViewModel(IExportLocator injectionScope, FrameworkElement view, Type viewModelType)
 		{
 			object viewModel = null;
 			object oldViewModel = view.DataContext;

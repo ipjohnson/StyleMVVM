@@ -43,7 +43,9 @@ namespace StyleMVVM
 			obj.SetValue(DesignTimeExportLocatorProperty, value);
 		}
 
-		// Using a DependencyProperty as the backing store for DesignTimeExportLocator.  This enables animation, styling, binding, etc...
+		/// <summary>
+		/// Design time locator
+		/// </summary>
 		public static readonly DependencyProperty DesignTimeExportLocatorProperty =
 			 DependencyProperty.RegisterAttached("DesignTimeExportLocator", typeof(IExportLocator), typeof(DesignTimeBootstrapper), new PropertyMetadata(null));
 
