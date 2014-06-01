@@ -133,7 +133,7 @@ namespace StyleMVVM
 		{
 			Container = new DependencyInjectionContainer(exportEnvironment);
 
-			Container.Configure(new CompositionRoot());
+			Container.Configure(new StyleMVVMCompositionRoot());
 
 			Instance = this;
 		}

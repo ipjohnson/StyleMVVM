@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using StyleMVVM.Ultilities;
 #if NETFX_CORE
 using Windows.UI.Xaml;
 #endif
@@ -45,6 +45,11 @@ namespace StyleMVVM.View
 		private static void ListChangedCallback(DependencyObject dependencyObject,
 															 DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
 		{
+			if (DesignModeUtility.DesignModeIsEnabled)
+			{
+				return;
+			}
+
 			EventHandlerList oldHandlerList = dependencyPropertyChangedEventArgs.OldValue as EventHandlerList;
 
 			if (oldHandlerList != null)
@@ -94,6 +99,11 @@ namespace StyleMVVM.View
 
 		private static void AttachChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
 		{
+			if (DesignModeUtility.DesignModeIsEnabled)
+			{
+				return;
+			}
+
 			string attachString = dependencyPropertyChangedEventArgs.NewValue as string;
 
 			if (!string.IsNullOrWhiteSpace(attachString))

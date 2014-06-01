@@ -62,9 +62,6 @@
     <Compile Include="..\StyleMVVM\Bootstrapper.cs">
       <Link>Bootstrapper.cs</Link>
     </Compile>
-    <Compile Include="..\StyleMVVM\CompositionRoot.cs">
-      <Link>CompositionRoot.cs</Link>
-    </Compile>
     <Compile Include="..\StyleMVVM\DesignTimeBootstrapper.cs">
       <Link>DesignTimeBootstrapper.cs</Link>
     </Compile>
@@ -109,6 +106,9 @@
     </Compile>
     <Compile Include="..\StyleMVVM\Services\ServiceStartupAttribute.cs">
       <Link>Services\ServiceStartupAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\StyleMVVMCompositionRoot.cs">
+      <Link>StyleMVVMCompositionRoot.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\Ultilities\DesignModeUtility.cs">
       <Link>Utilities\DesignModeUtility.cs</Link>

@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CompositionRoot.cs" />
+    <Compile Include="StyleMVVMCompositionRoot.cs" />
     <Compile Include="DesignTimeBootstrapper.cs" />
     <Compile Include="IBootstrapper.cs" />
     <Compile Include="LanguageExtensions\DispatcherExtensions.cs" />

@@ -21,7 +21,7 @@ namespace StyleMVVM
 	/// <summary>
 	/// Composition root for StyleMVVM framework
 	/// </summary>
-	public class CompositionRoot : IConfigurationModule
+	public class StyleMVVMCompositionRoot : IConfigurationModule
 	{
 		/// <summary>
 		/// Configure the container for StyleMVVM

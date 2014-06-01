@@ -18,6 +18,9 @@ using System.Windows;
 
 namespace StyleMVVM
 {
+	/// <summary>
+	/// Static class that will setup a bootstrapper at design time
+	/// </summary>
 	public static class DesignTimeBootstrapper
 	{
 		/// <summary>
@@ -34,8 +37,6 @@ namespace StyleMVVM
 					{
 						IBootstrapper newBootStrapper = new Bootstrapper(ExportEnvironment.DesignTime);
 
-						object testResource = null;
-
 						if (Application.Current != null)
 						{
 #if DOT_NET
@@ -50,8 +51,9 @@ namespace StyleMVVM
 
 #else
 							List<Assembly> designTimeAssemblies = new List<Assembly>();
-
-							FindAllDesignTimeObjects(Application.Current.Resources, designTimeAssemblies);
+							List<IConfigurationModule> configurationModules = new List<IConfigurationModule>();
+							
+							FindAllDesignTimeObjects(Application.Current.Resources, designTimeAssemblies, configurationModules);
 
 							foreach (Assembly designTimeAssembly in designTimeAssemblies)
 							{
@@ -60,6 +62,10 @@ namespace StyleMVVM
 								newBootStrapper.Container.Configure(c => c.ExportAssembly(localAssembly));
 							}
 
+							foreach (IConfigurationModule configurationModule in configurationModules)
+							{
+								newBootStrapper.Container.Configure(configurationModule);
+							}
 #endif
 						}
 
@@ -73,18 +79,25 @@ namespace StyleMVVM
 		}
 
 		private static void FindAllDesignTimeObjects(ResourceDictionary resourceDictionary,
-																	List<Assembly> designTimeAssemblies)
+																	List<Assembly> designTimeAssemblies,
+																	List<IConfigurationModule> configurationModules)
 		{
 			foreach (ResourceDictionary mergedDictionary in resourceDictionary.MergedDictionaries)
 			{
-				FindAllDesignTimeObjects(mergedDictionary, designTimeAssemblies);
+				FindAllDesignTimeObjects(mergedDictionary, designTimeAssemblies,configurationModules);
 			}
 
 			foreach (KeyValuePair<object, object> keyValuePair in resourceDictionary)
 			{
 				string stringKey = keyValuePair.Key as string;
 
-				if (stringKey != null && stringKey.ToLower().StartsWith("designtimeresource"))
+				IConfigurationModule configurationModule = keyValuePair.Value as IConfigurationModule;
+
+				if (configurationModule != null)
+				{
+					configurationModules.Add(configurationModule);
+				}
+				else if (stringKey != null && stringKey.ToLower().StartsWith("designtimeresource"))
 				{
 					Logger.Debug("Found Key: " + keyValuePair.Key + " type " + keyValuePair.Key.GetType().FullName);
 

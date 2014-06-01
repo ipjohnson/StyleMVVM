@@ -73,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProjectTemplates\StyleMVVM Store Apps\StyleMVVM Blank Universal App.zip" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
