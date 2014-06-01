@@ -56,7 +56,7 @@ namespace StyleMVVM
 		/// </summary>
 		public static IExportLocator GetDesignTimeExportLocatorInstance(FrameworkElement frameworkElement)
 		{
-			IExportLocator returnValue = GetDesignTimeExportLocator(frameworkElement);
+			IExportLocator returnValue = null;
 
 			if (returnValue == null &&
 				 DesignModeUtility.DesignModeIsEnabled)
@@ -97,7 +97,6 @@ namespace StyleMVVM
 							}
 						});
 
-					SetDesignTimeExportLocator(frameworkElement, returnValue);
 				}
 			}
 
