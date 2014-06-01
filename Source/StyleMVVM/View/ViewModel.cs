@@ -41,7 +41,7 @@ namespace StyleMVVM.View
 			if (d is FrameworkElement)
 			{
 				IExportLocator exportLocator = DesignModeUtility.DesignModeIsEnabled ? 
-														 DesignTimeBootstrapper.GetDesignTimeExportLocator(d as FrameworkElement) : 
+														 DesignTimeBootstrapper.GetDesignTimeExportLocatorInstance(d as FrameworkElement) : 
 														 Bootstrapper.Instance.Container;
 
 				IViewModelResolutionService resolutionService =
