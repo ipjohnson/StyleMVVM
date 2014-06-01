@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Grace.DependencyInjection;
 using Grace.Logging;
 using StyleMVVM.Ultilities;
 using StyleMVVM.ViewModel;
@@ -40,13 +40,12 @@ namespace StyleMVVM.View
 		{
 			if (d is FrameworkElement)
 			{
-				if (DesignModeUtility.DesignModeIsEnabled)
-				{
-					DesignTimeBootstrapper.CreateDesignTimeBootstrapper(d as FrameworkElement);
-				}
+				IExportLocator exportLocator = DesignModeUtility.DesignModeIsEnabled ? 
+														 DesignTimeBootstrapper.GetDesignTimeExportLocator(d as FrameworkElement) : 
+														 Bootstrapper.Instance.Container;
 
-				IViewModelResolutionService resolutionService = 
-					Bootstrapper.Instance.Container.Locate(typeof(IViewModelResolutionService)) as IViewModelResolutionService;
+				IViewModelResolutionService resolutionService =
+					exportLocator.Locate(typeof(IViewModelResolutionService)) as IViewModelResolutionService;
 
 				if (resolutionService != null)
 				{

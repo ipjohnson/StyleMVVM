@@ -24,12 +24,40 @@ namespace StyleMVVM
 	public static class DesignTimeBootstrapper
 	{
 		/// <summary>
+		/// Gets the design time Export locator
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
+		public static IExportLocator GetDesignTimeExportLocator(DependencyObject obj)
+		{
+			return (IExportLocator)obj.GetValue(DesignTimeExportLocatorProperty);
+		}
+
+		/// <summary>
+		/// Sets the design time locator
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <param name="value"></param>
+		public static void SetDesignTimeExportLocator(DependencyObject obj, IExportLocator value)
+		{
+			obj.SetValue(DesignTimeExportLocatorProperty, value);
+		}
+
+		// Using a DependencyProperty as the backing store for DesignTimeExportLocator.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty DesignTimeExportLocatorProperty =
+			 DependencyProperty.RegisterAttached("DesignTimeExportLocator", typeof(IExportLocator), typeof(DesignTimeBootstrapper), new PropertyMetadata(null));
+
+
+		/// <summary>
 		/// Creates a new Design time bootstrapper if DesignModeEnabled is true
 		/// and there isn't a bootstrapper already
 		/// </summary>
-		public static void CreateDesignTimeBootstrapper(FrameworkElement frameworkElement)
+		public static IExportLocator GetDesignTimeExportLocatorInstance(FrameworkElement frameworkElement)
 		{
-			if (DesignModeUtility.DesignModeIsEnabled)
+			IExportLocator returnValue = GetDesignTimeExportLocator(frameworkElement);
+
+			if (returnValue == null &&
+				 DesignModeUtility.DesignModeIsEnabled)
 			{
 				if (!Bootstrapper.HasInstance)
 				{
@@ -37,45 +65,41 @@ namespace StyleMVVM
 					{
 						IBootstrapper newBootStrapper = new Bootstrapper(ExportEnvironment.DesignTime);
 
-						if (Application.Current != null)
-						{
-#if DOT_NET
-							foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-							{
-								newBootStrapper.Container.RegisterAssembly(assembly);
-							}
-
-							AppDomain.CurrentDomain.AssemblyLoad -= CurrentDomainOnAssemblyLoad;
-
-							AppDomain.CurrentDomain.AssemblyLoad += CurrentDomainOnAssemblyLoad;
-
-#else
-							List<Assembly> designTimeAssemblies = new List<Assembly>();
-							List<IConfigurationModule> configurationModules = new List<IConfigurationModule>();
-							
-							FindAllDesignTimeObjects(Application.Current.Resources, designTimeAssemblies, configurationModules);
-
-							foreach (Assembly designTimeAssembly in designTimeAssemblies)
-							{
-								var localAssembly = designTimeAssembly;
-
-								newBootStrapper.Container.Configure(c => c.ExportAssembly(localAssembly));
-							}
-
-							foreach (IConfigurationModule configurationModule in configurationModules)
-							{
-								newBootStrapper.Container.Configure(configurationModule);
-							}
-#endif
-						}
-
 						newBootStrapper.Start();
 					}
 					catch (Exception)
 					{
 					}
 				}
+
+				if (Application.Current != null)
+				{
+					List<Assembly> designTimeAssemblies = new List<Assembly>();
+					List<IConfigurationModule> configurationModules = new List<IConfigurationModule>();
+
+					FindAllDesignTimeObjects(Application.Current.Resources, designTimeAssemblies, configurationModules);
+
+					returnValue = Bootstrapper.Instance.Container.CreateChildScope(
+						c =>
+						{
+							foreach (Assembly designTimeAssembly in designTimeAssemblies)
+							{
+								var localAssembly = designTimeAssembly;
+
+								c.ExportAssembly(localAssembly);
+							}
+
+							foreach (IConfigurationModule configurationModule in configurationModules)
+							{
+								configurationModule.Configure(c);
+							}
+						});
+
+					SetDesignTimeExportLocator(frameworkElement, returnValue);
+				}
 			}
+
+			return returnValue;
 		}
 
 		private static void FindAllDesignTimeObjects(ResourceDictionary resourceDictionary,
@@ -84,7 +108,7 @@ namespace StyleMVVM
 		{
 			foreach (ResourceDictionary mergedDictionary in resourceDictionary.MergedDictionaries)
 			{
-				FindAllDesignTimeObjects(mergedDictionary, designTimeAssemblies,configurationModules);
+				FindAllDesignTimeObjects(mergedDictionary, designTimeAssemblies, configurationModules);
 			}
 
 			foreach (KeyValuePair<object, object> keyValuePair in resourceDictionary)
