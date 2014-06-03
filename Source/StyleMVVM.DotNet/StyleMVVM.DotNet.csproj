@@ -173,8 +173,17 @@
     <Compile Include="..\StyleMVVM\View\EventHandlers.cs">
       <Link>View\EventHandlers.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\IMessageBoxService.cs">
+      <Link>View\IMessageBoxService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\Impl\MessageBoxService.cs">
+      <Link>View\Impl\MessageBoxService.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\Impl\NavigationService.cs">
       <Link>View\Impl\NavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\Impl\ViewBinderService.cs">
+      <Link>View\Impl\ViewBinderService.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\Impl\ViewContext.cs">
       <Link>View\Impl\ViewContext.cs</Link>
@@ -184,6 +193,12 @@
     </Compile>
     <Compile Include="..\StyleMVVM\View\INavigationService.cs">
       <Link>View\INavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\IViewBinder.cs">
+      <Link>View\IViewBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\IViewBinderService.cs">
+      <Link>View\IViewBinderService.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\IViewContext.cs">
       <Link>View\IViewContext.cs</Link>
