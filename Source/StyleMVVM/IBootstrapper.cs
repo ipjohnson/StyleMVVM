@@ -7,6 +7,9 @@ using Grace.DependencyInjection;
 
 namespace StyleMVVM
 {
+	/// <summary>
+	/// Bootstrapper interface
+	/// </summary>
 	public interface IBootstrapper
 	{
 		/// <summary>
