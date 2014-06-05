@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace StyleMVVM.DotNet.TestApp.Controls
+namespace Samples.Wpf.Controls
 {
     public class BiValueControl : ItemsControl
     {

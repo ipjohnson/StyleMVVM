@@ -1,11 +1,6 @@
-﻿using System.Windows.Controls;
-
-namespace StyleMVVM.DotNet.TestApp.Views
+﻿namespace Samples.Wpf.Views
 {
-    /// <summary>
-    /// Interaction logic for PersonEditingControl.xaml
-    /// </summary>
-    public partial class PersonEditingControl : UserControl
+    public partial class PersonEditingControl
     {
         public PersonEditingControl()
         {

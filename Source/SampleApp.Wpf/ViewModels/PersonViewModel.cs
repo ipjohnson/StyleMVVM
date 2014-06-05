@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace StyleMVVM.DotNet.TestApp.ViewModels
+namespace Samples.Wpf.ViewModels
 {
     public class PersonViewModel
     {

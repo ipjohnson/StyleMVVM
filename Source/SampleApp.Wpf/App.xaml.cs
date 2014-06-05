@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Windows;
 using AutoMapper;
 using Grace.DependencyInjection;
-using StyleMVVM.DotNet.TestApp.Model;
-using StyleMVVM.DotNet.TestApp.ViewModels;
+using Samples.Wpf.Model;
+using Samples.Wpf.ViewModels;
+using StyleMVVM;
 
-namespace StyleMVVM.DotNet.TestApp
+namespace Samples.Wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml

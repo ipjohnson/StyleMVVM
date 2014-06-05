@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using StyleMVVM.DotNet.TestApp.Model;
+using Samples.Wpf.Model;
 
-namespace StyleMVVM.DotNet.TestApp.Services
+namespace Samples.Wpf.Services
 {
     public interface ISampleService
     {

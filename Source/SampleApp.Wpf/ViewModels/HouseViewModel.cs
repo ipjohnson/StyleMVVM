@@ -1,6 +1,6 @@
 ﻿using StyleMVVM.ViewModel;
 
-namespace StyleMVVM.DotNet.TestApp.ViewModels
+namespace Samples.Wpf.ViewModels
 {
     public class HouseViewModel : BaseViewModel
     {

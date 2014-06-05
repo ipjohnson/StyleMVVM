@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StyleMVVM.DotNet.TestApp.Model
+namespace Samples.Wpf.Model
 {
     public class Person
     {

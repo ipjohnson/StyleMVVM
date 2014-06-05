@@ -10,7 +10,7 @@ using System;
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
 
-namespace StyleMVVM.DotNet.TestApp.Properties
+namespace Samples.Wpf.Properties
 {
     /// <summary>
   /// Indicates that the value of the marked element could be <c>null</c> sometimes,

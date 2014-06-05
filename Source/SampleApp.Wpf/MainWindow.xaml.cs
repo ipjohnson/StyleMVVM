@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace StyleMVVM.DotNet.TestApp
+namespace Samples.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

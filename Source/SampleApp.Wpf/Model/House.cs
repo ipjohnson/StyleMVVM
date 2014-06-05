@@ -1,4 +1,4 @@
-﻿namespace StyleMVVM.DotNet.TestApp.Model
+﻿namespace Samples.Wpf.Model
 {
     public class House
     {
