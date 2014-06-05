@@ -98,7 +98,7 @@
     <Compile Include="Views\PersonEditingControl.xaml.cs">
       <DependentUpon>PersonEditingControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\BiValueControl.xaml">
+    <Page Include="Controls\Theme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

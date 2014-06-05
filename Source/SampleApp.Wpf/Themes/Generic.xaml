@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Samples.Wpf;component/Controls/BiValueControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Samples.Wpf;component/Controls/Theme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
    

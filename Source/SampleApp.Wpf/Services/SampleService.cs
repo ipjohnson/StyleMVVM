@@ -18,6 +18,7 @@ namespace Samples.Wpf.Services
                         new House
                         {
                             Surface = 300,
+                            Location = "Denver"
                         }
                     }
                 },
@@ -30,10 +31,12 @@ namespace Samples.Wpf.Services
                         new House
                         {
                             Surface = 80,
+                            Location = "Madrid"
                         },
                           new House
                         {
                             Surface = 130,
+                            Location = "Ciudad Real"
                         }
                     }
                 },

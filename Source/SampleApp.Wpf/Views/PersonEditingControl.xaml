@@ -9,16 +9,34 @@
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModels:PersonViewModel}">
     <UserControl.Resources>
     </UserControl.Resources>
-    <StackPanel Grid.IsSharedSizeScope="True">
-        <controls:BiValueControl>
-            <TextBlock Text="Name" />
-            <TextBox Text="{Binding Name}" />
-        </controls:BiValueControl>
-        <controls:BiValueControl>
-            <TextBlock Text="Age" />
-            <TextBox Text="{Binding Age}" />
-        </controls:BiValueControl>
-        <ListBox ItemsSource="{Binding OwnedHouses}" Margin="10"  />
-    </StackPanel>
+    <DockPanel Grid.IsSharedSizeScope="True">
+
+        <DockPanel.Resources>
+
+            <Style TargetType="{x:Type FrameworkElement}">
+                <Setter Property="Margin" Value="8" />
+            </Style>
+
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type FrameworkElement}}" />
+
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type FrameworkElement}}" />
+
+        </DockPanel.Resources>
+
+        <StackPanel DockPanel.Dock="Top">
+            <controls:BiValueControl>
+                <TextBlock Text="Name" />
+                <TextBox Text="{Binding Name}" />
+            </controls:BiValueControl>
+
+            <controls:BiValueControl>
+                <TextBlock Text="Age" />
+                <TextBox Text="{Binding Age}" />
+            </controls:BiValueControl>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding OwnedHouses}" Margin="10" HorizontalContentAlignment="Stretch" />
+
+    </DockPanel>
 
 </UserControl>

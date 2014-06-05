@@ -7,6 +7,7 @@
         xmlns:viewModel="clr-namespace:Samples.Wpf.ViewModels"
         xmlns:views="clr-namespace:Samples.Wpf.Views"
         xmlns:wpf="clr-namespace:Samples.Wpf"
+        xmlns:controls="clr-namespace:Samples.Wpf.Controls"
         mc:Ignorable="d"
         view:ViewModel.Name="Main"
         Title="MainWindow" Height="746" Width="942" d:DataContext="{d:DesignInstance wpf:MainViewModel}">
@@ -23,18 +24,19 @@
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:HouseViewModel}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+            <UniformGrid Rows="1">
                 <Image Source="Images/House.png" />
-                <TextBlock Grid.Column="1">
+                <TextBlock>
                     <TextBlock.Text>
                         <Binding Path="Surface" StringFormat="House of {0}m²" />
                     </TextBlock.Text>
                 </TextBlock>
-            </Grid>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <Binding Path="Location" StringFormat="Located in {0}" />
+                    </TextBlock.Text>
+                </TextBlock>
+            </UniformGrid>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -62,28 +64,21 @@
             </ListView.View>
 
         </ListView>
-        <views:PersonEditingControl Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedPerson}" />
-        <Grid Grid.Row="1" Margin="0,0,10,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="151*"/>
-                <ColumnDefinition Width="174*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
+        <views:PersonEditingControl Grid.Column="1" DataContext="{Binding SelectedPerson}" Margin="10,13,10,10" />        
+        <GroupBox Header="Filtered List" Grid.Row="1" Grid.Column="0">
+            <DockPanel>
+                <Grid DockPanel.Dock="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Age > " HorizontalAlignment="Right" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding AgeFilter}" />
+                </Grid>
+                <ListBox ItemsSource="{Binding FilteredPeopleByAge}" Margin="10,10,0,10"
+                         SelectedItem="{Binding SelectedPerson}" />
+            </DockPanel>
+        </GroupBox>
 
-            <TextBlock Text="Filtered List"  Grid.ColumnSpan="2"></TextBlock>
-            <ListBox Grid.Row="1" ItemsSource="{Binding FilteredPeopleByAge}" Margin="10,10,0,10"
-                     SelectedItem="{Binding SelectedPerson}" Grid.ColumnSpan="2"  />
-            <Grid Grid.Row="0" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Age > " HorizontalAlignment="Right" />
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding AgeFilter}" />
-            </Grid>
-        </Grid>
     </Grid>
 </Window>
