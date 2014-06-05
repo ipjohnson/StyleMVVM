@@ -62,6 +62,18 @@
     <Compile Include="..\StyleMVVM\Bootstrapper.cs">
       <Link>Bootstrapper.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\Conventions\Binders\ConventionsViewBinder.cs">
+      <Link>Conventions\Binders\ConventionsViewBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Conventions\Binders\ConventionsViewModelBinder.cs">
+      <Link>Conventions\Binders\ConventionsViewModelBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Conventions\Service\ConventionsService.cs">
+      <Link>Conventions\Service\ConventionsService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\Conventions\Service\IConventionsService.cs">
+      <Link>Conventions\Service\IConventionsService.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\DesignTimeBootstrapper.cs">
       <Link>DesignTimeBootstrapper.cs</Link>
     </Compile>
@@ -164,6 +176,9 @@
     <Compile Include="..\StyleMVVM\ViewModel\ViewModelAttribute.cs">
       <Link>ViewModel\ViewModelAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\Conventions.cs">
+      <Link>View\Conventions.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\EventHandlerInstance.cs">
       <Link>View\EventHandlerInstance.cs</Link>
     </Compile>
@@ -218,11 +233,13 @@
     <Compile Include="..\StyleMVVM\View\ViewModel.cs">
       <Link>View\ViewModel.cs</Link>
     </Compile>
+    <Compile Include="Conventions\ConventionsCompositionRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\Output\bin\"

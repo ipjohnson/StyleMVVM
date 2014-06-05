@@ -11,7 +11,7 @@ namespace StyleMVVM.View.Impl
 	/// </summary>
 	public class ViewBinderService : IViewBinderService
 	{
-		private IReadOnlyCollection<IViewBinder> viewBinders;
+		private readonly IReadOnlyCollection<IViewBinder> viewBinders;
 
 		/// <summary>
 		/// Default constructor takes a read only collection of view binders
