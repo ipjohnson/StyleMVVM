@@ -1,7 +1,7 @@
-﻿namespace SampleApps.Wpf.ViewModels
-{
-    using ReactiveUI;
+﻿using ReactiveUI;
 
+namespace StyleMVVM.DotNet.TestApp.ViewModels
+{
     public class PersonViewModel
     {
         public string Name { get; set; }

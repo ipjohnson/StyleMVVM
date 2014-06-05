@@ -1,8 +1,8 @@
-namespace SampleApps.Wpf.Views
-{
-    using System.Windows;
-    using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Controls;
 
+namespace StyleMVVM.DotNet.TestApp.Controls
+{
     public class BiValueGrid : Grid
     {
         public BiValueGrid()

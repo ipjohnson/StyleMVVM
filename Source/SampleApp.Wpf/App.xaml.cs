@@ -1,18 +1,13 @@
-﻿namespace SampleApps.Wpf
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
+using AutoMapper;
+using Grace.DependencyInjection;
+using StyleMVVM.DotNet.TestApp.Model;
+using StyleMVVM.DotNet.TestApp.ViewModels;
+
+namespace StyleMVVM.DotNet.TestApp
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Windows;
-
-    using AutoMapper;
-
-    using Grace.DependencyInjection;
-
-    using SampleApps.Wpf.Model;
-    using SampleApps.Wpf.ViewModels;
-
-    using StyleMVVM;
-
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

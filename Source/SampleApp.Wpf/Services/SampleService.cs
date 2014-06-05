@@ -1,9 +1,8 @@
-﻿namespace SampleApps.Wpf.Services
+﻿using System.Collections.Generic;
+using StyleMVVM.DotNet.TestApp.Model;
+
+namespace StyleMVVM.DotNet.TestApp.Services
 {
-    using System.Collections.Generic;
-
-    using SampleApps.Wpf.Model;
-
     public class SampleService : ISampleService
     {
         public IEnumerable<Person> GetPeople()

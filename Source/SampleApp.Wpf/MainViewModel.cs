@@ -1,17 +1,13 @@
-﻿namespace SampleApps.Wpf
+﻿using System.Linq;
+using AutoMapper;
+using ReactiveUI;
+using StyleMVVM.DotNet.TestApp.Properties;
+using StyleMVVM.DotNet.TestApp.Services;
+using StyleMVVM.DotNet.TestApp.ViewModels;
+using StyleMVVM.ViewModel;
+
+namespace StyleMVVM.DotNet.TestApp
 {
-    using System.Linq;
-
-    using AutoMapper;
-
-    using ReactiveUI;
-
-    using SampleApps.Wpf.Properties;
-    using SampleApps.Wpf.Services;
-    using SampleApps.Wpf.ViewModels;
-
-    using StyleMVVM.ViewModel;
-
     [ViewModel(Name = "Main"), UsedImplicitly]
     public class MainViewModel : BaseViewModel
     {

@@ -1,7 +1,7 @@
-﻿namespace SampleApps.Wpf
-{
-    using System.Windows;
+﻿using System.Windows;
 
+namespace StyleMVVM.DotNet.TestApp
+{
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

@@ -86,7 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BiValueControl.cs" />
+    <Compile Include="Controls\BiValueControl.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -94,10 +94,14 @@
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
-    <Compile Include="Views\BiValueGrid.cs" />
+    <Compile Include="Controls\BiValueGrid.cs" />
     <Compile Include="Views\PersonEditingControl.xaml.cs">
       <DependentUpon>PersonEditingControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\BiValueControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

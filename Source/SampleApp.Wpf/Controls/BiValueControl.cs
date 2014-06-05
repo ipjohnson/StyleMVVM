@@ -1,8 +1,8 @@
-﻿namespace SampleApps.Wpf
+﻿using System.Windows;
+using System.Windows.Controls;
+
+namespace StyleMVVM.DotNet.TestApp.Controls
 {
-    using System.Windows;
-    using System.Windows.Controls;
-  
     public class BiValueControl : ItemsControl
     {
         static BiValueControl()

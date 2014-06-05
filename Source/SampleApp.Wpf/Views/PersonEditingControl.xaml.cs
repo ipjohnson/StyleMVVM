@@ -1,7 +1,7 @@
-﻿namespace SampleApps.Wpf.Views
-{
-    using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
+namespace StyleMVVM.DotNet.TestApp.Views
+{
     /// <summary>
     /// Interaction logic for PersonEditingControl.xaml
     /// </summary>

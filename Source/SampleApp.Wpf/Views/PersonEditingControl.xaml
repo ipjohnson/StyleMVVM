@@ -1,23 +1,23 @@
-﻿<UserControl x:Class="SampleApps.Wpf.Views.PersonEditingControl"
+﻿<UserControl x:Class="StyleMVVM.DotNet.TestApp.Views.PersonEditingControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:wpf="clr-namespace:SampleApps.Wpf"
-             xmlns:viewModels="clr-namespace:SampleApps.Wpf.ViewModels"
+             xmlns:controls="clr-namespace:StyleMVVM.DotNet.TestApp.Controls"
+             xmlns:viewModels="clr-namespace:StyleMVVM.DotNet.TestApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModels:PersonViewModel}">
     <UserControl.Resources>
     </UserControl.Resources>
     <StackPanel Grid.IsSharedSizeScope="True">
-        <wpf:BiValueControl>
+        <controls:BiValueControl>
             <TextBlock Text="Name" />
             <TextBox Text="{Binding Name}" />
-        </wpf:BiValueControl>
-        <wpf:BiValueControl>
+        </controls:BiValueControl>
+        <controls:BiValueControl>
             <TextBlock Text="Age" />
             <TextBox Text="{Binding Age}" />
-        </wpf:BiValueControl>
+        </controls:BiValueControl>
         <ListBox ItemsSource="{Binding OwnedHouses}" Margin="10"  />
     </StackPanel>
 

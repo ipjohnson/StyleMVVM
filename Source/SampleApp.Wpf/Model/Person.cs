@@ -1,7 +1,7 @@
-﻿namespace SampleApps.Wpf.Model
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace StyleMVVM.DotNet.TestApp.Model
+{
     public class Person
     {
         public string Name { get; set; }
