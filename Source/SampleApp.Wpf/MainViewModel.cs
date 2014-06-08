@@ -11,13 +11,14 @@ namespace Samples.Wpf
     [ViewModel(Name = "Main"), UsedImplicitly]
     public class MainViewModel : BaseViewModel
     {
-        private readonly ISampleService sampleService;
+        private readonly IPersonViewModelService personViewModelService;
+        private readonly IFilePickerService filePickerService;
         private PersonViewModel selectedPerson;        
         private decimal ageFilter;
 
-        public MainViewModel(ISampleService sampleService)
+        public MainViewModel(ISampleService sampleService, IPersonViewModelService personViewModelService)
         {
-            this.sampleService = sampleService;            
+            this.personViewModelService = personViewModelService;
 
             this.AgeFilter = 30;
 
@@ -62,10 +63,10 @@ namespace Samples.Wpf
             }
         }
 
-        private static ReactiveList<PersonViewModel> GetPeopleFromService(ISampleService service)
+        private ReactiveList<PersonViewModel> GetPeopleFromService(ISampleService service)
         {
             var people = service.GetPeople();
-            return new ReactiveList<PersonViewModel>(people.Select(Mapper.Map<PersonViewModel>))
+            return new ReactiveList<PersonViewModel>(people.Select(personViewModelService.Create))
                        {
                            ChangeTrackingEnabled = true
                        };

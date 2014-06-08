@@ -19,7 +19,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Image Source="Images/Person.png"></Image>
+                <Image Source="Images/Person.png" />
                 <TextBlock Grid.Column="1" Text="{Binding Path=Name}" />
             </Grid>
         </DataTemplate>

@@ -172,3 +172,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/NuGet/lib/net45
+/Source/SampleApps.sln.DotSettings
