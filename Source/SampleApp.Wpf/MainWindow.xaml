@@ -7,7 +7,6 @@
         xmlns:viewModel="clr-namespace:Samples.Wpf.ViewModels"
         xmlns:views="clr-namespace:Samples.Wpf.Views"
         xmlns:wpf="clr-namespace:Samples.Wpf"
-        xmlns:controls="clr-namespace:Samples.Wpf.Controls"
         mc:Ignorable="d"
         view:ViewModel.Name="Main"
         Title="MainWindow" Height="746" Width="942" d:DataContext="{d:DesignInstance wpf:MainViewModel}">
@@ -19,7 +18,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Image Source="Images/Person.png" />
+                <Image Source="{Binding Picture}" />
                 <TextBlock Grid.Column="1" Text="{Binding Path=Name}" />
             </Grid>
         </DataTemplate>
@@ -53,8 +52,8 @@
                 <GridView>
                     <GridViewColumn Width="140" Header="Picture">
                         <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="Images/Person.png" />
+                            <DataTemplate DataType="{x:Type viewModel:PersonViewModel}">
+                                <Image Source="{Binding Picture}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -64,7 +63,7 @@
             </ListView.View>
 
         </ListView>
-        <views:PersonEditingControl Grid.Column="1" DataContext="{Binding SelectedPerson}" Margin="10,13,10,10" />        
+        <views:PersonEditingControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Person="{Binding SelectedPerson}" Margin="10,13,10,10" Visibility="{Binding SelectedPerson, Converter={StaticResource NullSetsCollapsedConverter}}" />        
         <GroupBox Header="Filtered List" Grid.Row="1" Grid.Column="0">
             <DockPanel>
                 <Grid DockPanel.Dock="Top">

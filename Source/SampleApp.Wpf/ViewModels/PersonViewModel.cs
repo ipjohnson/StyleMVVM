@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -9,9 +8,10 @@ using StyleMVVM.ViewModel;
 
 namespace Samples.Wpf.ViewModels
 {
-    public class PersonViewModel
+    public class PersonViewModel : BaseViewModel
     {
         private readonly IFilePickerService filePickerService;
+        private ImageSource picture;
 
         public PersonViewModel(IFilePickerService filePickerService)
         {
@@ -31,7 +31,15 @@ namespace Samples.Wpf.ViewModels
         public ReactiveList<HouseViewModel> OwnedHouses { get; set; }
         public decimal Age { get; set; }
 
-        public ImageSource Picture { get; set; }
+        public ImageSource Picture
+        {
+            get { return picture; }
+            set
+            {
+                picture = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public ICommand ChangePictureCommnad { get; private set; }
     }

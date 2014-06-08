@@ -89,6 +89,7 @@
     <Compile Include="Controls\BiValueControl.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="NullReturnsCollapsedConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Services\FilePickerService.cs" />
