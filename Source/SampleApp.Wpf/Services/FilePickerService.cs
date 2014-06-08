@@ -5,16 +5,16 @@ namespace Samples.Wpf.Services
 {
     public interface IFilePickerService
     {
-        Task<string> PickFile();
+        string PickFile();
     }
 
     public class FilePickerService : IFilePickerService
     {
-        public Task<string> PickFile()
+        public string PickFile()
         {
             var openfileFileDialog = new OpenFileDialog();
             openfileFileDialog.ShowDialog();
-            return new Task<string>( () => string.Empty);
+            return openfileFileDialog.FileName;
         }
     }
 }
