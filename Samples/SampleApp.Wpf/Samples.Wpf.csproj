@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF976DC1-4146-4EE8-9AF2-BB79E6EF755C}</ProjectGuid>
+    <ProjectGuid>{D9E91C4F-A563-473B-9FEF-A5569ADB0FCC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StyleMVVM.DotNet.TestApp</RootNamespace>
-    <AssemblyName>StyleMVVM.DotNet.TestApp</AssemblyName>
+    <RootNamespace>Samples.Wpf</RootNamespace>
+    <AssemblyName>Samples.Wpf</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -86,18 +86,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BiValueControl.cs" />
+    <Compile Include="Controls\BiValueControl.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="NullReturnsCollapsedConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="Services\FilePickerService.cs" />
+    <Compile Include="Services\IPersonViewModelService.cs" />
     <Compile Include="Services\ISampleService.cs" />
+    <Compile Include="Services\PersonViewModelProvider.cs" />
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
-    <Compile Include="Views\BiValueGrid.cs" />
+    <Compile Include="Controls\BiValueGrid.cs" />
     <Compile Include="Views\PersonEditingControl.xaml.cs">
       <DependentUpon>PersonEditingControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,7 +158,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StyleMVVM.DotNet\StyleMVVM.DotNet.csproj">
+    <ProjectReference Include="..\..\Source\StyleMVVM.DotNet\StyleMVVM.DotNet.csproj">
       <Project>{6A16B837-EBE3-44C6-98F9-7FDF1EF787A0}</Project>
       <Name>StyleMVVM.DotNet</Name>
     </ProjectReference>

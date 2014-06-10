@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuSpecFiles", "NuSpecFiles"
 		..\NuGet\StyleMVVM.nuspec = ..\NuGet\StyleMVVM.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Wpf", "SampleApp.Wpf\Samples.Wpf.csproj", "{D9E91C4F-A563-473B-9FEF-A5569ADB0FCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Wpf", "..\Samples\SampleApp.Wpf\Samples.Wpf.csproj", "{D9E91C4F-A563-473B-9FEF-A5569ADB0FCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StyleMVVM Library", "StyleMVVM Library", "{69F20C4B-50B4-4B50-B9DF-9FC9BAF110F3}"
 EndProject
