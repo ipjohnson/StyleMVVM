@@ -188,8 +188,14 @@
     <Compile Include="..\StyleMVVM\View\EventHandlers.cs">
       <Link>View\EventHandlers.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\View\IFilePickerService.cs">
+      <Link>View\IFilePickerService.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\View\IMessageBoxService.cs">
       <Link>View\IMessageBoxService.cs</Link>
+    </Compile>
+    <Compile Include="..\StyleMVVM\View\Impl\FilePickerService.cs">
+      <Link>View\Impl\FilePickerService.cs</Link>
     </Compile>
     <Compile Include="..\StyleMVVM\View\Impl\MessageBoxService.cs">
       <Link>View\Impl\MessageBoxService.cs</Link>
@@ -235,6 +241,9 @@
     </Compile>
     <Compile Include="Conventions\ConventionsCompositionRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Impl\PickerLocationIdTranslator.cs" />
+    <Compile Include="View\IPickerLocationIdTranslator.cs" />
+    <Compile Include="Utilities\PickerLocationId.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
