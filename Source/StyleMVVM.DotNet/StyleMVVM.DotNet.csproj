@@ -113,6 +113,9 @@
     <Compile Include="..\StyleMVVM\Messenger\WeakMessageHandler.cs">
       <Link>Messenger\WeakMessageHandler.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\Services\FileTypeFilter.cs">
+      <Link>Services\FileTypeFilter.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\Services\MetadataConstants.cs">
       <Link>Services\MetadataConstants.cs</Link>
     </Compile>

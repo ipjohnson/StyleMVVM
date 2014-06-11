@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using AutoMapper;
 using ReactiveUI;
 using Samples.Wpf.Properties;
 using Samples.Wpf.Services;
@@ -12,7 +11,6 @@ namespace Samples.Wpf
     public class MainViewModel : BaseViewModel
     {
         private readonly IPersonViewModelService personViewModelService;
-        private readonly IFilePickerService filePickerService;
         private PersonViewModel selectedPerson;        
         private decimal ageFilter;
 

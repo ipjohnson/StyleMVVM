@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
-using ReactiveUI;
-using Samples.Wpf.Annotations;
+﻿using AutoMapper;
 using Samples.Wpf.Model;
+using Samples.Wpf.Properties;
 using Samples.Wpf.ViewModels;
+using StyleMVVM.View;
 
 namespace Samples.Wpf.Services
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using StyleMVVM.Services;
 #if NETFX_CORE
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -26,7 +26,7 @@ namespace StyleMVVM.View
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
 		Task<IReadOnlyList<StorageFile>> PickMultipleFilesAsync(
-			PickerLocationId location, params string[] filterTypes);
+			PickerLocationId location, IList<FilePickerFilter> filePickerFilters);
 
 		/// <summary>
 		/// Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
@@ -34,7 +34,7 @@ namespace StyleMVVM.View
 		/// <param name="location"></param>
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
-		Task<StorageFile> PickFileAsync(PickerLocationId location, params string[] filterTypes);
+		Task<StorageFile> PickFileAsync(PickerLocationId location, IList<FilePickerFilter> filePickerFilters);
 #else
 		/// <summary>
 		/// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
@@ -43,7 +43,7 @@ namespace StyleMVVM.View
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
 		Task<IReadOnlyList<string>> PickMultipleFilesAsync(
-			PickerLocationId location, params string[] filterTypes);
+			PickerLocationId location, IList<FilePickerFilter> filePickerFilters);
 
 		/// <summary>
 		/// Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
@@ -51,7 +51,7 @@ namespace StyleMVVM.View
 		/// <param name="location"></param>
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
-		Task<string> PickFileAsync(PickerLocationId location, params string[] filterTypes);
+		Task<string> PickFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters);
 
 		/// <summary>
 		/// Opens the Save file dialog allowing a user to pick a file to save to
@@ -59,7 +59,7 @@ namespace StyleMVVM.View
 		/// <param name="location"></param>
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
-		Task<string> PickSaveFileAsync(PickerLocationId location, params string[] filterTypes);
+        Task<string> PickSaveFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters);
 #endif
 	}
 }

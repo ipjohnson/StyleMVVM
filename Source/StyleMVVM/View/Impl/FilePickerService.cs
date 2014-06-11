@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StyleMVVM.Services;
 #if NETFX_CORE
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -24,7 +26,7 @@ namespace StyleMVVM.View.Impl
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
 		public async Task<IReadOnlyList<StorageFile>> PickMultipleFilesAsync(
-			PickerLocationId location = PickerLocationId.DocumentsLibrary, params string[] filterTypes)
+			PickerLocationId location = PickerLocationId.DocumentsLibrary, IList<FilePickerFilter> filePickerFilters)
 		{
 			FileOpenPicker openPicker = new FileOpenPicker();
 
@@ -34,7 +36,7 @@ namespace StyleMVVM.View.Impl
 			{
 				foreach (string filterType in filterTypes)
 				{
-					openPicker.FileTypeFilter.Add(filterType);
+					openPicker.FilePickerFilter.Add(filterType);
 				}
 			}
 
@@ -48,7 +50,7 @@ namespace StyleMVVM.View.Impl
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
 		public async Task<StorageFile> PickFileAsync(PickerLocationId location = PickerLocationId.DocumentsLibrary,
-																				 params string[] filterTypes)
+																				 IList<FilePickerFilter> filePickerFilters)
 		{
 			FileOpenPicker openPicker = new FileOpenPicker
 			                            {
@@ -59,7 +61,7 @@ namespace StyleMVVM.View.Impl
 			{
 				foreach (string filterType in filterTypes)
 				{
-					openPicker.FileTypeFilter.Add(filterType);
+					openPicker.FilePickerFilter.Add(filterType);
 				}
 			}
 
@@ -67,7 +69,7 @@ namespace StyleMVVM.View.Impl
 		}
 
 #else
-		private IPickerLocationIdTranslator translator;
+		private readonly IPickerLocationIdTranslator translator;
 
 		/// <summary>
 		/// Default file picker
@@ -84,7 +86,7 @@ namespace StyleMVVM.View.Impl
 		/// <param name="location"></param>
 		/// <param name="filterTypes"></param>
 		/// <returns></returns>
-		public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, params string[] filterTypes)
+		public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, IList<FilePickerFilter> filePickerFilters)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -101,19 +103,33 @@ namespace StyleMVVM.View.Impl
 			return new List<string>();
 		}
 
-		public async Task<string> PickFileAsync(PickerLocationId location, params string[] filterTypes)
+		public async Task<string> PickFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters)
 		{
-			OpenFileDialog openFileDialog = new OpenFileDialog();
+			var openFileDialog = new OpenFileDialog
+			                     {
+			                         InitialDirectory = TranslateLocation(location),
+			                         Filter = CreateFilter(fileTypeFilters),
+			                         Multiselect = false
+			                     };
 
-			openFileDialog.InitialDirectory = TranslateLocation(location);
-
-			openFileDialog.Multiselect = false;
-			openFileDialog.ShowDialog();
+		    openFileDialog.ShowDialog();
 
 			return openFileDialog.FileName;
 		}
 
-		public async Task<string> PickSaveFileAsync(PickerLocationId location, params string[] filterTypes)
+	    private static string CreateFilter(IList<FilePickerFilter> filters)
+	    {
+	        var stringBuilder = new StringBuilder();
+
+	        foreach (var fileTypeFilter in filters)
+	        {
+                stringBuilder.AppendFormat(CultureInfo.InvariantCulture, "{0}|{1}", fileTypeFilter.Description, fileTypeFilter.Filter);
+	        }
+
+	        return stringBuilder.ToString();
+	    }
+
+	    public async Task<string> PickSaveFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters)
 		{
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
 

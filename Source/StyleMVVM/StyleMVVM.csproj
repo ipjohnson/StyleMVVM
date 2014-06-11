@@ -57,6 +57,7 @@
     <Compile Include="Conventions\ConventionsCompositionRoot.cs" />
     <Compile Include="Conventions\Service\ConventionsService.cs" />
     <Compile Include="Conventions\Service\IConventionsService.cs" />
+    <Compile Include="Services\FileTypeFilter.cs" />
     <Compile Include="StyleMVVMCompositionRoot.cs" />
     <Compile Include="DesignTimeBootstrapper.cs" />
     <Compile Include="IBootstrapper.cs" />

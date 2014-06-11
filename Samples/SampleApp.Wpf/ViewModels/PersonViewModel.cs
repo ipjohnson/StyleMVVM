@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ReactiveUI;
 using Samples.Wpf.Services;
+using StyleMVVM.Services;
+using StyleMVVM.Utilities;
+using StyleMVVM.View;
 using StyleMVVM.ViewModel;
 
 namespace Samples.Wpf.ViewModels
@@ -21,8 +25,12 @@ namespace Samples.Wpf.ViewModels
 
         private void ChangePicture()
         {
+            var fileTypeFilters = new List<FilePickerFilter>()
+                                  {
+                                      new FilePickerFilter("*.jpg;*.png", "Picture files")
+                                  };
 
-            var path = filePickerService.PickFile();
+            var path = filePickerService.PickFileAsync(PickerLocationId.Desktop, fileTypeFilters).Result;
             var uri = new Uri(path, UriKind.RelativeOrAbsolute);
             Picture = new BitmapImage(uri);
         }
