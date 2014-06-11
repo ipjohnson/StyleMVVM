@@ -62,6 +62,16 @@ namespace StyleMVVM
 			registrationBlock.Export<NavigationService>().
 									As<INavigationService>().
 									WithCtorParam<Frame>().IsRequired(false);
+
+			registrationBlock.Export<FilePickerService>().
+									As<IFilePickerService>().
+									AndSingleton();
+
+#if !NETFX_CORE
+			registrationBlock.Export<PickerLocationIdTranslator>().
+									As<IPickerLocationIdTranslator>().
+									AndSingleton();
+#endif
 		}
 
 		private void SetupValidation(IExportRegistrationBlock registrationBlock)

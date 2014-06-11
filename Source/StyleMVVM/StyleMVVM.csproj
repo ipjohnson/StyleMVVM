@@ -99,7 +99,9 @@
     <Compile Include="View\EventHandlerInstance.cs" />
     <Compile Include="View\EventHandlers.cs" />
     <Compile Include="View\EventHandlerList.cs" />
+    <Compile Include="View\IFilePickerService.cs" />
     <Compile Include="View\IMessageBoxService.cs" />
+    <Compile Include="View\Impl\FilePickerService.cs" />
     <Compile Include="View\Impl\MessageBoxService.cs" />
     <Compile Include="View\Impl\NavigationService.cs" />
     <Compile Include="View\Impl\ViewBinderService.cs" />
