@@ -80,20 +80,22 @@ namespace StyleMVVM.View.Impl
 			this.translator = translator;
 		}
 
-		/// <summary>
-		/// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
-		/// </summary>
-		/// <param name="location"></param>
-		/// <param name="filterTypes"></param>
-		/// <returns></returns>
-		public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, IList<FilePickerFilter> filePickerFilters)
+	    /// <summary>
+	    /// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
+	    /// </summary>
+	    /// <param name="location"></param>
+	    /// <param name="filePickerFilters">Filters that determine which kind of files are presented to the user to choose from.</param>
+	    /// <returns></returns>
+	    public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, IList<FilePickerFilter> filePickerFilters)
 		{
-			OpenFileDialog openFileDialog = new OpenFileDialog();
+			OpenFileDialog openFileDialog = new OpenFileDialog
+			                                {
+			                                    InitialDirectory = TranslateLocation(location),
+			                                    Multiselect = true,
+			                                    Filter = CreateFilter(filePickerFilters)
+			                                };
 
-			openFileDialog.InitialDirectory = TranslateLocation(location);
-
-			openFileDialog.Multiselect = true;
-			openFileDialog.ShowDialog();
+		    openFileDialog.ShowDialog();
 
 			if (openFileDialog.FileNames != null)
 			{
@@ -131,11 +133,13 @@ namespace StyleMVVM.View.Impl
 
 	    public async Task<string> PickSaveFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters)
 		{
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			SaveFileDialog saveFileDialog = new SaveFileDialog
+			                                {
+			                                    InitialDirectory = TranslateLocation(location),
+			                                    Filter = CreateFilter(fileTypeFilters)
+			                                };
 
-			saveFileDialog.InitialDirectory = TranslateLocation(location);
-
-			saveFileDialog.ShowDialog();
+	        saveFileDialog.ShowDialog();
 
 			return saveFileDialog.FileName;
 		}
