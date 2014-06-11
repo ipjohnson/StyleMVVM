@@ -174,3 +174,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 /NuGet/lib/net45
 /Source/SampleApps.sln.DotSettings
+/NuGet/lib/portable-win81+wpa81
