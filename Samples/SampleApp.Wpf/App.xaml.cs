@@ -19,7 +19,11 @@ namespace Samples.Wpf
             base.OnStartup(e);
 
             Bootstrapper.Instance.Configure(new CompositionRoot());
-            Mapper.CreateMap<Person, PersonViewModel>();
+
+            Mapper.Configuration.ConstructServicesUsing(type => Bootstrapper.Instance.Container.Locate(type));
+            Mapper.CreateMap<Person, PersonViewModel>()
+                .ConstructUsingServiceLocator();
+
             Mapper.CreateMap<House, HouseViewModel>();
         }
     }

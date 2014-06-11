@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using ReactiveUI;
 using Samples.Wpf.Annotations;
@@ -20,13 +19,7 @@ namespace Samples.Wpf.Services
 
         public PersonViewModel Create(Person person)
         {
-            return new PersonViewModel(filePickerService)
-            {
-                Name = person.Name,
-                Age = person.Age,
-                Picture = person.Picture,
-                OwnedHouses = new ReactiveList<HouseViewModel>(Mapper.Map<IEnumerable<HouseViewModel>>(person.OwnedHouses)),
-            };
+            return Mapper.Map<PersonViewModel>(person);
         }
     }
 }
