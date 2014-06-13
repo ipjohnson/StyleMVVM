@@ -23,50 +23,47 @@ namespace StyleMVVM.View.Impl
 		/// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
 		/// </summary>
 		/// <param name="location"></param>
-		/// <param name="filterTypes"></param>
+        /// <param name="filePickerFilters">The filters that will be applied</param>
 		/// <returns></returns>
 		public async Task<IReadOnlyList<StorageFile>> PickMultipleFilesAsync(
-			PickerLocationId location = PickerLocationId.DocumentsLibrary, IList<FilePickerFilter> filePickerFilters)
+			PickerLocationId location = PickerLocationId.DocumentsLibrary, IList<FilePickerFilter> filePickerFilters = null)
 		{
-			FileOpenPicker openPicker = new FileOpenPicker();
+			var openPicker = new FileOpenPicker { SuggestedStartLocation = location };
 
-			openPicker.SuggestedStartLocation = location;
-
-			if (filterTypes != null)
-			{
-				foreach (string filterType in filterTypes)
-				{
-					openPicker.FilePickerFilter.Add(filterType);
-				}
-			}
+		    AddFilters(openPicker, filePickerFilters);
 
 			return await openPicker.PickMultipleFilesAsync();
 		}
 
-		/// <summary>
-		/// Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
-		/// </summary>
-		/// <param name="location"></param>
-		/// <param name="filterTypes"></param>
-		/// <returns></returns>
-		public async Task<StorageFile> PickFileAsync(PickerLocationId location = PickerLocationId.DocumentsLibrary,
-																				 IList<FilePickerFilter> filePickerFilters)
+	    /// <summary>
+	    /// Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
+	    /// </summary>
+	    /// <param name="location"></param>
+	    /// <param name="filePickerFilters">The filters that will be applied</param>
+	    /// <returns></returns>
+	    public async Task<StorageFile> PickFileAsync(PickerLocationId location = PickerLocationId.DocumentsLibrary,
+																				 IList<FilePickerFilter> filePickerFilters = null)
 		{
 			FileOpenPicker openPicker = new FileOpenPicker
 			                            {
 				                            SuggestedStartLocation = location
 			                            };
 
-			if (filterTypes != null)
-			{
-				foreach (string filterType in filterTypes)
-				{
-					openPicker.FilePickerFilter.Add(filterType);
-				}
-			}
+            AddFilters(openPicker, filePickerFilters);
 
 			return await openPicker.PickSingleFileAsync();
 		}
+
+	    private static void AddFilters(FileOpenPicker openPicker, IList<FilePickerFilter> filePickerFilters)
+	    {
+	        if (filePickerFilters != null)
+	        {
+	            foreach (var filterType in filePickerFilters)
+	            {
+	                openPicker.FileTypeFilter.Add(filterType.Filter);
+	            }
+	        }
+	    }
 
 #else
 		private readonly IPickerLocationIdTranslator translator;
