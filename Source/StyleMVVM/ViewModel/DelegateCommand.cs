@@ -51,7 +51,7 @@ namespace StyleMVVM.ViewModel
 		/// execute the delegate command
 		/// </summary>
 		/// <param name="parameter"></param>
-		public void Execute(object parameter)
+		public virtual void Execute(object parameter)
 		{
 			executeMethod(parameter);
 		}

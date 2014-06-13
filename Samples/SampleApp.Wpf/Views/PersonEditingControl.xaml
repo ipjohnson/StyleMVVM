@@ -22,7 +22,7 @@
 
         </DockPanel.Resources>
 
-        <Button Command="{Binding Person.ChangePictureCommnad}" HorizontalAlignment="Center" DockPanel.Dock="Top" ToolTip="Click to change">
+        <Button Command="{Binding Person.ChangePictureCommand}" HorizontalAlignment="Center" DockPanel.Dock="Top" ToolTip="Click to change">
             <Image Source="{Binding Person.Picture}" />
         </Button>
 

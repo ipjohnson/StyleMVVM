@@ -95,6 +95,7 @@
     <Compile Include="Services\ISampleService.cs" />
     <Compile Include="Services\PersonViewModelProvider.cs" />
     <Compile Include="Services\SampleService.cs" />
+    <Compile Include="Utils\CancellableCommand.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
     <Compile Include="Controls\BiValueGrid.cs" />

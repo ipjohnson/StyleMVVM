@@ -4,7 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ReactiveUI;
-using Samples.Wpf.Services;
+
 using StyleMVVM.Services;
 using StyleMVVM.Utilities;
 using StyleMVVM.View;
@@ -12,27 +12,32 @@ using StyleMVVM.ViewModel;
 
 namespace Samples.Wpf.ViewModels
 {
+    using Samples.Wpf.Utils;
+
     public class PersonViewModel : BaseViewModel
     {
         private readonly IFilePickerService filePickerService;
         private ImageSource picture;
 
+        private string path;
+
         public PersonViewModel(IFilePickerService filePickerService)
         {
             this.filePickerService = filePickerService;
-            ChangePictureCommnad = new DelegateCommand(o => ChangePicture());
-        }
+            this.ChangePictureCommand = new CancellableCommand(
+                o =>
+                {
+                    var uri = new Uri(path, UriKind.RelativeOrAbsolute);
+                    Picture = new BitmapImage(uri);
+                });
 
-        private void ChangePicture()
-        {
-            var fileTypeFilters = new List<FilePickerFilter>()
-                                  {
-                                      new FilePickerFilter("*.jpg;*.png", "Picture files")
-                                  };
+            this.ChangePictureCommand.Executing += (sender, args) =>
+                {
+                    var fileTypeFilters = new List<FilePickerFilter> { new FilePickerFilter("*.jpg;*.png", "Picture files") };
+                    path = this.filePickerService.PickFileAsync(PickerLocationId.Desktop, fileTypeFilters).Result;
 
-            var path = filePickerService.PickFileAsync(PickerLocationId.Desktop, fileTypeFilters).Result;
-            var uri = new Uri(path, UriKind.RelativeOrAbsolute);
-            Picture = new BitmapImage(uri);
+                    args.Cancel = string.IsNullOrEmpty(this.path);
+                };
         }
 
         public string Name { get; set; }
@@ -49,6 +54,6 @@ namespace Samples.Wpf.ViewModels
             }
         }
 
-        public ICommand ChangePictureCommnad { get; private set; }
+        public CancellableCommand ChangePictureCommand { get; private set; }
     }
 }
