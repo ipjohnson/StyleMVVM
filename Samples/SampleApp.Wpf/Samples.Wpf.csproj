@@ -86,7 +86,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApplicationCommandsProvider.cs" />
     <Compile Include="Controls\BiValueControl.cs" />
+    <Compile Include="IApplicationCommandsProvider.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="NullReturnsCollapsedConverter.cs" />
@@ -96,6 +98,9 @@
     <Compile Include="Services\PersonViewModelProvider.cs" />
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="Utils\CancellableCommand.cs" />
+    <Compile Include="Utils\MenuIconConverter.cs" />
+    <Compile Include="Utils\SeparatorStyleSelector.cs" />
+    <Compile Include="ViewModelMenu.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
     <Compile Include="Controls\BiValueGrid.cs" />

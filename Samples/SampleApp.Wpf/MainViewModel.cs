@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using ReactiveUI;
 using Samples.Wpf.Properties;
 using Samples.Wpf.Services;
@@ -11,12 +14,14 @@ namespace Samples.Wpf
     public class MainViewModel : BaseViewModel
     {
         private readonly IPersonViewModelService personViewModelService;
-        private PersonViewModel selectedPerson;        
+        private readonly IApplicationCommandsProvider appCommandsProvider;
+        private PersonViewModel selectedPerson;
         private decimal ageFilter;
 
-        public MainViewModel(ISampleService sampleService, IPersonViewModelService personViewModelService)
+        public MainViewModel(ISampleService sampleService, IPersonViewModelService personViewModelService, IApplicationCommandsProvider appCommandsProvider)
         {
             this.personViewModelService = personViewModelService;
+            this.appCommandsProvider = appCommandsProvider;
 
             this.AgeFilter = 30;
 
@@ -27,7 +32,28 @@ namespace Samples.Wpf
                 model => model.Age > this.AgeFilter,
                 (model, viewModel) => 0,
                 this.WhenAny(model => model.AgeFilter, change => change.Value));
+
+            this.CreateNewPersonCommand = new DelegateCommand(o => { }, o => false);
+            this.MenuOptions = CreateMenuOptions();            
         }
+
+        private ObservableCollection<ViewModelMenu> CreateMenuOptions()
+        {
+            return new ObservableCollection<ViewModelMenu>()
+                   {
+                       new ViewModelMenu(
+                           "File", 
+                           new List<ViewModelMenu>
+                           {
+                               new ViewModelMenu("Add new Person...") { Command = this.CreateNewPersonCommand },
+                               new ViewModelMenu("Quit") { Command = this.appCommandsProvider.QuitCommand }
+                           })
+                   };
+        }
+
+        public ICommand CreateNewPersonCommand { get; private set; }
+
+        public ObservableCollection<ViewModelMenu> MenuOptions { get; private set; }
 
         public IReactiveDerivedList<PersonViewModel> FilteredPeopleByAge { get; set; }
 
@@ -42,7 +68,7 @@ namespace Samples.Wpf
 
             set
             {
-                this.selectedPerson = value;                
+                this.selectedPerson = value;
                 this.OnPropertyChanged();
             }
         }

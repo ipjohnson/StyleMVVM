@@ -40,14 +40,17 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="193*"/>
-            <RowDefinition Height="204*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="255*"/>
             <ColumnDefinition Width="262*"/>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding People}" Margin="10,10,10,9" SelectedItem="{Binding SelectedPerson}">
+        <Menu  Height="Auto" ItemContainerStyle="{StaticResource ContextMenuItemStyle}" ItemsSource="{Binding MenuOptions}" Grid.ColumnSpan="2" />
+        <ListView ItemsSource="{Binding People}" Margin="10,10,10,9" SelectedItem="{Binding SelectedPerson}"
+                  Grid.Row="1" Grid.Column="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="140" Header="Picture">
@@ -63,8 +66,8 @@
             </ListView.View>
 
         </ListView>
-        <views:PersonEditingControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Person="{Binding SelectedPerson}" Margin="10,13,10,10" Visibility="{Binding SelectedPerson, Converter={StaticResource NullSetsCollapsedConverter}}" />        
-        <GroupBox Header="Filtered List" Grid.Row="1" Grid.Column="0">
+        <views:PersonEditingControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Person="{Binding SelectedPerson}" Margin="10,13,10,10" Visibility="{Binding SelectedPerson, Converter={StaticResource NullSetsCollapsedConverter}}" />
+        <GroupBox Header="Filtered List" Grid.Row="2" Grid.Column="0">
             <DockPanel>
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>

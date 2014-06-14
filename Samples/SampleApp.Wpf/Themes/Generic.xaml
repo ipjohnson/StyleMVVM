@@ -6,5 +6,4 @@
         <ResourceDictionary Source="pack://application:,,,/Samples.Wpf;component/Controls/Theme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-   
 </ResourceDictionary>

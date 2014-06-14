@@ -9,10 +9,7 @@ using StyleMVVM;
 
 namespace Samples.Wpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -42,6 +39,11 @@ namespace Samples.Wpf
                 ByInterfaces().
                 Select(TypesThat.EndWith("Service")).
                 AndSingleton();
+
+            registrationBlock.Export(allTypes)
+                .ByInterfaces()
+                .Select(TypesThat.EndWith("Provider"))
+                .AndSingleton();
         }
         private List<Type> AllTypes()
         {
