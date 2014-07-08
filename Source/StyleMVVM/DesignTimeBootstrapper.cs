@@ -58,8 +58,7 @@ namespace StyleMVVM
 		{
 			IExportLocator returnValue = null;
 
-			if (returnValue == null &&
-				 DesignModeUtility.DesignModeIsEnabled)
+			if (DesignModeUtility.DesignModeIsEnabled)
 			{
 				if (!Bootstrapper.HasInstance)
 				{

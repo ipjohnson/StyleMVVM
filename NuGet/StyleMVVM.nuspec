@@ -29,6 +29,7 @@
     <file src="lib\net45\StyleMVVM.DotNet.pdb" target="lib\net45\StyleMVVM.DotNet.pdb"/>
 
     <file src="..\Source\StyleMVVM\**\*.cs" target="src"/>
+    <file src="..\Source\StyleMVVM.DotNet\**\*.cs" target="src"/>
   </files>
 </package> 
 
