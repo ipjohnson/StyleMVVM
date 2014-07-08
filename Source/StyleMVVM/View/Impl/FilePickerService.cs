@@ -16,17 +16,15 @@ using StyleMVVM.Utilities;
 
 namespace StyleMVVM.View.Impl
 {
+	/// <summary>
+	/// Default File Picker Service.
+	/// </summary>
 	public class FilePickerService : IFilePickerService
 	{
-#if NETFX_CORE
-		/// <summary>
-		/// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
-		/// </summary>
-		/// <param name="location"></param>
-        /// <param name="filePickerFilters">The filters that will be applied</param>
-		/// <returns></returns>
+#if NETFX_CORE	   
+        /// <inheritdoc />
 		public async Task<IReadOnlyList<StorageFile>> PickMultipleFilesAsync(
-			PickerLocationId location = PickerLocationId.DocumentsLibrary, IList<FilePickerFilter> filePickerFilters = null)
+            PickerLocationId location = PickerLocationId.DocumentsLibrary, params FilePickerFilter[] filePickerFilters)
 		{
 			var openPicker = new FileOpenPicker { SuggestedStartLocation = location };
 
@@ -35,16 +33,10 @@ namespace StyleMVVM.View.Impl
 			return await openPicker.PickMultipleFilesAsync();
 		}
 
-	    /// <summary>
-	    /// Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
-	    /// </summary>
-	    /// <param name="location"></param>
-	    /// <param name="filePickerFilters">The filters that will be applied</param>
-	    /// <returns></returns>
-	    public async Task<StorageFile> PickFileAsync(PickerLocationId location = PickerLocationId.DocumentsLibrary,
-																				 IList<FilePickerFilter> filePickerFilters = null)
+        /// <inheritdoc />
+	    public async Task<StorageFile> PickFileAsync(PickerLocationId location = PickerLocationId.DocumentsLibrary, params FilePickerFilter[] filePickerFilters)
 		{
-			FileOpenPicker openPicker = new FileOpenPicker
+			var openPicker = new FileOpenPicker
 			                            {
 				                            SuggestedStartLocation = location
 			                            };
@@ -77,13 +69,8 @@ namespace StyleMVVM.View.Impl
 			this.translator = translator;
 		}
 
-	    /// <summary>
-	    /// Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
-	    /// </summary>
-	    /// <param name="location"></param>
-	    /// <param name="filePickerFilters">Filters that determine which kind of files are presented to the user to choose from.</param>
-	    /// <returns></returns>
-	    public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, IList<FilePickerFilter> filePickerFilters)
+        /// <inheritdoc />
+	    public async Task<IReadOnlyList<string>> PickMultipleFilesAsync(PickerLocationId location, params FilePickerFilter[] filePickerFilters)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog
 			                                {
@@ -102,7 +89,8 @@ namespace StyleMVVM.View.Impl
 			return new List<string>();
 		}
 
-		public async Task<string> PickFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters)
+        /// <inheritdoc />
+		public async Task<string> PickFileAsync(PickerLocationId location, params FilePickerFilter[] fileTypeFilters)
 		{
 			var openFileDialog = new OpenFileDialog
 			                     {
@@ -128,7 +116,8 @@ namespace StyleMVVM.View.Impl
 	        return stringBuilder.ToString();
 	    }
 
-	    public async Task<string> PickSaveFileAsync(PickerLocationId location, IList<FilePickerFilter> fileTypeFilters)
+        /// <inheritdoc />
+	    public async Task<string> PickSaveFileAsync(PickerLocationId location, params FilePickerFilter[] fileTypeFilters)
 		{
 			SaveFileDialog saveFileDialog = new SaveFileDialog
 			                                {
@@ -147,5 +136,5 @@ namespace StyleMVVM.View.Impl
 		}
 #endif
 
-	}
+    }
 }

@@ -32,10 +32,8 @@ namespace Samples.Wpf.ViewModels
                 });
 
             this.ChangePictureCommand.Executing += (sender, args) =>
-                {
-                    var fileTypeFilters = new List<FilePickerFilter> { new FilePickerFilter("*.jpg;*.png", "Picture files") };
-                    path = this.filePickerService.PickFileAsync(PickerLocationId.Desktop, fileTypeFilters).Result;
-
+                {                 
+                    path = this.filePickerService.PickFileAsync(PickerLocationId.Desktop, new FilePickerFilter("*.jpg;*.png", "Picture files")).Result;
                     args.Cancel = string.IsNullOrEmpty(this.path);
                 };
         }
