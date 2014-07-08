@@ -116,6 +116,9 @@
     <Compile Include="..\StyleMVVM\Messenger\WeakMessageHandler.cs">
       <Link>Messenger\WeakMessageHandler.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\Services\MetadataConstants.cs">
       <Link>Services\MetadataConstants.cs</Link>
     </Compile>
@@ -242,7 +245,6 @@
     <Compile Include="..\StyleMVVM\View\ViewModel.cs">
       <Link>View\ViewModel.cs</Link>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Impl\PickerLocationIdTranslator.cs" />
     <Compile Include="View\IPickerLocationIdTranslator.cs" />
     <Compile Include="Utilities\PickerLocationId.cs" />
