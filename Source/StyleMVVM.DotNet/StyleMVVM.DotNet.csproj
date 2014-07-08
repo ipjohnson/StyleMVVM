@@ -68,6 +68,9 @@
     <Compile Include="..\StyleMVVM\Conventions\Binders\ConventionsViewModelBinder.cs">
       <Link>Conventions\Binders\ConventionsViewModelBinder.cs</Link>
     </Compile>
+    <Compile Include="..\StyleMVVM\Conventions\ConventionsCompositionRoot.cs">
+      <Link>Conventions\ConventionsCompositionRoot.cs</Link>
+    </Compile>
     <Compile Include="..\StyleMVVM\Conventions\Service\ConventionsService.cs">
       <Link>Conventions\Service\ConventionsService.cs</Link>
     </Compile>
@@ -239,7 +242,6 @@
     <Compile Include="..\StyleMVVM\View\ViewModel.cs">
       <Link>View\ViewModel.cs</Link>
     </Compile>
-    <Compile Include="Conventions\ConventionsCompositionRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Impl\PickerLocationIdTranslator.cs" />
     <Compile Include="View\IPickerLocationIdTranslator.cs" />
