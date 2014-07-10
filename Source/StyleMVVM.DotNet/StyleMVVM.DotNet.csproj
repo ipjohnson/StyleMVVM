@@ -44,6 +44,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.3.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Grace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -246,6 +250,9 @@
     <Compile Include="View\Impl\PickerLocationIdTranslator.cs" />
     <Compile Include="View\IPickerLocationIdTranslator.cs" />
     <Compile Include="Utilities\PickerLocationId.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

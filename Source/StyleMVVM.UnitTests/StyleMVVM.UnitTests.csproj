@@ -127,6 +127,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="packages.config" />
     <None Include="StyleMVVM.UnitTests_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,12 @@
       <Project>{6fee07b1-8878-401e-ac66-5783a286655f}</Project>
       <Name>StyleMVVM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.3.8\lib\portable-win81+wpa81\Grace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

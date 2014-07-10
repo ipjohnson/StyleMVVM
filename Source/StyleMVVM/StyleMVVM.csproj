@@ -124,6 +124,15 @@
     <Folder Include="Conventions\DataConverters\" />
     <Folder Include="Resources\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.3.8\lib\portable-win81+wpa81\Grace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <!--<Import Project="..\..\BuildFiles\Microsoft.Portable.CSharp.targets" />-->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" Condition="$(teamcity_build_id) == ''" />
   <PropertyGroup>
