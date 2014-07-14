@@ -123,12 +123,12 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Reference Include="Grace">
+      <HintPath>..\packages\Grace.2.3.9\lib\portable-win81+wpa81\Grace.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Grace">
-      <HintPath>..\packages\Grace.2.3.8\lib\portable-win81+wpa81\Grace.dll</HintPath>
-    </Reference>
+    <None Include="packages.config" />
   </ItemGroup>
   <!--<Import Project="..\..\BuildFiles\Microsoft.Portable.CSharp.targets" />-->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" Condition="$(teamcity_build_id) == ''" />
@@ -141,7 +141,6 @@ xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\nuget\lib\portable-win81+wpa81\"
 xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\..\nuget\lib\portable-win81+wpa81\"
 xcopy /Y "$(TargetDir)$(TargetName).xml" "$(ProjectDir)..\..\nuget\lib\portable-win81+wpa81\"</PostBuildEvent>
   </PropertyGroup>
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
