@@ -41,7 +41,7 @@ namespace StyleMVVM
 		private void SetupViewModelService(IExportRegistrationBlock registrationBlock)
 		{
 			registrationBlock.Export<ViewModelResolutionService>().
-									As<IViewModelResolutionService>().AndSingleton();
+									As<IViewModelResolutionService>().Lifestyle.Singleton();
 
 			registrationBlock.Export<ViewModelDataContextBinder>().As<IViewModelBinder>();
 			registrationBlock.Export<ViewModelLoadedBinder>().As<IViewModelBinder>();
@@ -54,7 +54,7 @@ namespace StyleMVVM
 		{
 			registrationBlock.Export<DispatchedMessenger>().
 									As<IDispatchedMessenger>().
-									AndSingleton();
+                                    Lifestyle.Singleton();
 		}
 
 		private void SetupViewService(IExportRegistrationBlock registrationBlock)
@@ -65,12 +65,12 @@ namespace StyleMVVM
 
 			registrationBlock.Export<FilePickerService>().
 									As<IFilePickerService>().
-									AndSingleton();
+                                    Lifestyle.Singleton();
 
 #if !NETFX_CORE
 			registrationBlock.Export<PickerLocationIdTranslator>().
 									As<IPickerLocationIdTranslator>().
-									AndSingleton();
+                                    Lifestyle.Singleton();
 #endif
 		}
 

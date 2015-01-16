@@ -22,7 +22,7 @@ namespace StyleMVVM.UnitTests.Messenger
 		{
 			DependencyInjectionContainer container = new DependencyInjectionContainer();
 
-			container.Configure(c => c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().AndSingleton());
+            container.Configure(c => c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().Lifestyle.Singleton());
 
 			TestClass tc = container.Locate<TestClass>();
 
@@ -38,7 +38,7 @@ namespace StyleMVVM.UnitTests.Messenger
 		{
 			DependencyInjectionContainer container = new DependencyInjectionContainer();
 
-			container.Configure(c => c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().AndSingleton());
+            container.Configure(c => c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().Lifestyle.Singleton());
 
 			TestClass tc = container.Locate<TestClass>();
 

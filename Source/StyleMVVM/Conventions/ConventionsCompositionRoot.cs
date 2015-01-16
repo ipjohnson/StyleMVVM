@@ -38,7 +38,7 @@ namespace StyleMVVM.Conventions
 		{
 			registrationBlock.Export<ConventionsService>().
 									As<IConventionsService>().
-									AndSingleton();
+									Lifestyle.Singleton();
 
 			registrationBlock.Export<ConventionsViewBinder>().As<IViewBinder>();
 

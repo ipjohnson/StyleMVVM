@@ -28,7 +28,7 @@ namespace StyleMVVM.UnitTests.Messenger
 				                    c.Export(GetType().GetTypeInfo().Assembly.ExportedTypes).
 					                    ByType().
 					                    RegisterMessageHandlers();
-				                    c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().AndSingleton();
+                                    c.Export<DispatchedMessenger>().As<IDispatchedMessenger>().Lifestyle.Singleton();
 			                    });
 
 			ConventionClass convention = container.Locate<ConventionClass>();

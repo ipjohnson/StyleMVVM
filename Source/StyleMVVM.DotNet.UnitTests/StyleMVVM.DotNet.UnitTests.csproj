@@ -44,9 +44,18 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Grace">
-      <HintPath>..\packages\Grace.2.3.9\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Grace.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Grace, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Grace.3.0.0-Nightly1090\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Grace.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.8.0.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleFixture">
+      <HintPath>..\packages\SimpleFixture.1.1.1\lib\portable-net45+win+wpa81+wp80\SimpleFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleFixture.NSubstitute">
+      <HintPath>..\packages\SimpleFixture.NSubstitute.1.1.1\lib\net45\SimpleFixture.NSubstitute.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
