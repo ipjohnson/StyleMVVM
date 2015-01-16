@@ -13,7 +13,6 @@ using Windows.UI.Xaml;
 using System.Windows;
 #endif
 
-
 namespace StyleMVVM.ViewModel.Impl
 {
 	/// <summary>
