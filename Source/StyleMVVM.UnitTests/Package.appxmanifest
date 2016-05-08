@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="AB0532EB-B1CA-4F6E-AA92-7A798DC7D1C2" Publisher="CN=ijohnson" Version="1.0.0.0" />
+  <Identity Name="AB0532EB-B1CA-4F6E-AA92-7A798DC7D1C2" Publisher="CN=ian" Version="1.0.0.0" />
   <Properties>
     <DisplayName>StyleMVVM.UnitTests</DisplayName>
     <PublisherDisplayName>ijohnson</PublisherDisplayName>
