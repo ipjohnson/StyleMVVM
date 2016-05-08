@@ -1,8 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuSpecFiles", "NuSpecFiles", "{B0BF68A1-D1D8-4436-B4E6-88D14771A613}"
+	ProjectSection(SolutionItems) = preProject
+		..\NuGet\StyleMVVM.nuspec = ..\NuGet\StyleMVVM.nuspec
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM", "StyleMVVM\StyleMVVM.csproj", "{6FEE07B1-8878-401E-AC66-5783A286655F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM.DotNet", "StyleMVVM.DotNet\StyleMVVM.DotNet.csproj", "{6A16B837-EBE3-44C6-98F9-7FDF1EF787A0}"
@@ -12,11 +17,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM.DotNet.UnitTests", "StyleMVVM.DotNet.UnitTests\StyleMVVM.DotNet.UnitTests.csproj", "{9B5E558F-B848-4283-BE7F-4466804FCDBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleMVVM.Templates", "StyleMVVM.Templates\StyleMVVM.Templates.csproj", "{6CBEAE8D-66CB-43D7-B476-068E146470E9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuSpecFiles", "NuSpecFiles", "{B0BF68A1-D1D8-4436-B4E6-88D14771A613}"
-	ProjectSection(SolutionItems) = preProject
-		..\NuGet\StyleMVVM.nuspec = ..\NuGet\StyleMVVM.nuspec
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

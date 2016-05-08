@@ -122,12 +122,13 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Grace">
-      <HintPath>..\packages\Grace.3.0.0-Nightly1090\lib\portable-win81+wpa81\Grace.dll</HintPath>
-    </Reference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Reference Include="Grace, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.3.0.1.0\lib\portable-net45+win+wpa81+wp80\Grace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <!--<Import Project="..\..\BuildFiles\Microsoft.Portable.CSharp.targets" />-->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" Condition="$(teamcity_build_id) == ''" />

@@ -41,7 +41,8 @@ namespace StyleMVVM
 		private void SetupViewModelService(IExportRegistrationBlock registrationBlock)
 		{
 			registrationBlock.Export<ViewModelResolutionService>().
-									As<IViewModelResolutionService>().Lifestyle.Singleton();
+							  As<IViewModelResolutionService>().
+                              Lifestyle.Singleton();
 
 			registrationBlock.Export<ViewModelDataContextBinder>().As<IViewModelBinder>();
 			registrationBlock.Export<ViewModelLoadedBinder>().As<IViewModelBinder>();
@@ -53,8 +54,8 @@ namespace StyleMVVM
 		private void SetupDispatchedMessenger(IExportRegistrationBlock registrationBlock)
 		{
 			registrationBlock.Export<DispatchedMessenger>().
-									As<IDispatchedMessenger>().
-                                    Lifestyle.Singleton();
+							  As<IDispatchedMessenger>().
+                              Lifestyle.Singleton();
 		}
 
 		private void SetupViewService(IExportRegistrationBlock registrationBlock)
